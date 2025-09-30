@@ -15,7 +15,7 @@ const Contact = () => {
                 Need Help? Open a Ticket
               </h2>
               <p className="mb-12 text-base font-medium text-body-color">
-                Our support team will get back to you ASAP via email.
+                Our Frondesk support team will get back to you ASAP via email.
               </p>
               <form>
                 <div className="-mx-4 flex flex-wrap">

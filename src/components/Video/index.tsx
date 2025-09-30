@@ -7,25 +7,39 @@ import SectionTitle from "../Common/SectionTitle";
 
 export default function Video() {
   const [isOpen, setOpen] = useState(false);
+  const [isHide, setHide] = useState(false);
+    const setOpenimage = () => {
+    setHide(true); 
+    setOpen(true);
+    console.log('hh');
+  };
+  const setCloseimage = () => {
+    setHide(false); 
+    setOpen(false);
+    console.log('hccc');
+  };
 
   return (
     <>
-      <section className="relative z-10 py-16 md:py-20 lg:py-28">
-        <div className="container">
-          <SectionTitle
-            title="We are ready to help"
-            paragraph="There are many variations of passages of Lorem Ipsum available but the majority have suffered alteration in some form."
+      <SectionTitle
+            title="Frondesk is 100% result oriented. "
+            paragraph="Set your targets and Frondesk will show you the path to
+                      results. Our support team will assist you in every step of your journey to growth"
             center
             mb="80px"
           />
+      <section className="relative z-10 py-16 md:py-20 lg:py-28">
+        <div className="container">
+        
         </div>
         <div className="relative overflow-hidden">
           <div className="-mx-4 flex flex-wrap">
             <div className="w-full px-4">
               <div className="mx-auto max-w-[770px] overflow-hidden rounded-md">
+                {!isHide &&
                 <div className="relative aspect-77/40 items-center justify-center">
                   <Image
-                    src="/images/video/image.png"
+                    src="/images/hero/hero1.png"
                     alt="video image"
                     className="object-cover"
                     fill
@@ -33,7 +47,7 @@ export default function Video() {
                   <div className="absolute top-0 right-0 flex h-full w-full items-center justify-center">
                     <button
                       aria-label="video play button"
-                      onClick={() => setOpen(true)}
+                      onClick={setOpenimage}
                       className="text-primary flex h-[70px] w-[70px] items-center justify-center rounded-full bg-white/75 transition hover:bg-white"
                     >
                       <svg
@@ -47,7 +61,9 @@ export default function Video() {
                     </button>
                   </div>
                 </div>
+}
               </div>
+                
             </div>
           </div>
 
@@ -57,13 +73,19 @@ export default function Video() {
           </div>
         </div>
       </section>
-
+<div style={{  zIndex: 9999 }}>
+      
       <VideoModal
+  
         isOpen={isOpen}
-        onClose={() => setOpen(false)}
+        onClose={setCloseimage}
         channel="youtube"
         videoId="L61p2uyiMSo"
+       
       />
+
+      </div>
     </>
+
   );
 };

@@ -12,8 +12,12 @@ import Video from "@/components/Video";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Free Next.js Template for Startup and SaaS",
-  description: "This is Home for Startup Nextjs Template",
+   icons: {
+    icon: "/images/logo/apple-touch-icon.png", 
+    apple: "/images/logo/apple-touch-icon.png",
+  },
+  title: "Frondesk",
+  description: "AI-Powered Dealership Management Platform",
   // other metadata
 };
 
@@ -24,7 +28,7 @@ export default function Home() {
       <Hero />
       <Features />
       <Video />
-      <Brands />
+      {/* <Brands /> */}
       <AboutSectionOne />
       <AboutSectionTwo />
       <Testimonials />

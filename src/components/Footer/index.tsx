@@ -12,23 +12,23 @@ const Footer = () => {
               <div className="mb-12 max-w-[360px] lg:mb-16">
                 <Link href="/" className="mb-8 inline-block">
                   <Image
-                    src="/images/logo/logo-2.svg"
-                    alt="logo"
+                    src="/images/logo/frondesk-logo.svg"
+                    alt=""
                     className="w-full dark:hidden"
                     width={140}
                     height={30}
                   />
                   <Image
-                    src="/images/logo/logo.svg"
-                    alt="logo"
+                    src="/images/logo/frondesk-logo-white.svg"
+                    alt=""
                     className="hidden w-full dark:block"
                     width={140}
                     height={30}
                   />
                 </Link>
                 <p className="mb-9 text-base leading-relaxed text-body-color dark:text-body-color-dark">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Integer lobortis.
+                  Register & Grow Your Dealership with Frondesk AI-Powered Management Software
+
                 </p>
                 <div className="flex items-center">
                   <a
@@ -215,16 +215,16 @@ const Footer = () => {
           <div className="h-px w-full bg-linear-to-r from-transparent via-[#D2D8E183] to-transparent dark:via-[#959CB183]"></div>
           <div className="py-8">
             <p className="text-center text-base text-body-color dark:text-white">
-              Template by{" "}
+               Frondesk Technologies{" "}
               <a
-                href="http://uideck.com"
+                href="https://fixmydent-dev.frondesk.com/login"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-primary"
               >
-                UIdeck
+                
               </a>{" "}
-              and{" "}
+              {/* and{" "}
               <a
                 href="https://nextjstemplates.com"
                 target="_blank"
@@ -232,7 +232,7 @@ const Footer = () => {
                 className="hover:text-primary"
               >
                 Next.js Templates
-              </a>
+              </a> */}
             </p>
           </div>
         </div>

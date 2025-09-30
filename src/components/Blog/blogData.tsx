@@ -3,42 +3,42 @@ import { Blog } from "@/types/blog";
 const blogData: Blog[] = [
   {
     id: 1,
-    title: "Best UI components for modern websites",
+    title: "Automated AI Dent Detection",
     paragraph:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sit amet dictum neque, laoreet dolor.",
-    image: "/images/blog/blog-01.jpg",
+      "AI Dent Detection is fully automated, instantly identifying dents and damages on cars with high accuracy. It saves time, reduces manual effort, and ensures faster, more reliable assessments.",
+    image: "/images/blog/dent-blogs.png",
     author: {
-      name: "Samuyl Joshi",
+      name: "Frondesk Technologies",
       image: "/images/blog/author-03.png",
-      designation: "Graphic Designer",
+      designation: "DENT ",
     },
     tags: ["creative"],
     publishDate: "2025",
   },
   {
     id: 2,
-    title: "9 simple ways to improve your design skills",
+    title: "Automated Tyre Service",
     paragraph:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sit amet dictum neque, laoreet dolor.",
-    image: "/images/blog/blog-02.jpg",
+      "Tyre automation streamlines every aspect of tyre services, from tracking wear to scheduling replacements with ease. It eliminates manual errors, saves time & ensures customers get faster, more reliable tyre care.",
+    image: "/images/blog/tyre-blogs.png",
     author: {
-      name: "Musharof Chy",
+      name: "Frondesk Technologies",
       image: "/images/blog/author-02.png",
-      designation: "Content Writer",
+      designation: "Tyre",
     },
     tags: ["computer"],
     publishDate: "2025",
   },
   {
     id: 3,
-    title: "Tips to quickly improve your coding speed.",
+    title: "Automated Insurance Service",
     paragraph:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sit amet dictum neque, laoreet dolor.",
-    image: "/images/blog/blog-03.jpg",
+      "Automated insurance simplifies policy management by handling renewals & claims automatically. It reduces lapses, boosts customer satisfaction & keeps your dealership’s insurance services running smoothly",
+    image: "/images/blog/insurance-blogs.png",
     author: {
-      name: "Lethium Deo",
+      name: "Frondesk Technologies",
       image: "/images/blog/author-03.png",
-      designation: "Graphic Designer",
+      designation: "Insurance",
     },
     tags: ["design"],
     publishDate: "2025",

@@ -24,8 +24,8 @@ const AboutSectionOne = () => {
           <div className="-mx-4 flex flex-wrap items-center">
             <div className="w-full px-4 lg:w-1/2">
               <SectionTitle
-                title="Crafted for Startup, SaaS and Business Sites."
-                paragraph="The main ‘thrust’ is to focus on educating attendees on how to best protect highly vulnerable business applications with interactive panel discussions and roundtables."
+                title="Frondesk -- AI-Powered Aftersales Solutions for Dealerships."
+                paragraph="Our team combines skilled technologists and automotive aftersales specialists with over 20 years of experience at leading companies like Intel and Toyota. Over the last year, we have assisted numerous dealerships in driving higher revenue and profits, especially in the body shop and aftersales sectors. Leveraging AI-powered digital solutions alongside effective product and process training, we help dealerships achieve rapid success. Many clients have consistently realized up to 300% growth in their body shop business. Our mission is to help car dealerships unlock their true aftersales potential, optimize operations, and tap into untapped revenue streams."
                 mb="44px"
               />
 
@@ -35,30 +35,32 @@ const AboutSectionOne = () => {
               >
                 <div className="mx-[-12px] flex flex-wrap">
                   <div className="w-full px-3 sm:w-1/2 lg:w-full xl:w-1/2">
-                    <List text="Premium quality" />
-                    <List text="Tailwind CSS" />
-                    <List text="Use for lifetime" />
+                    <List text="AI-Powered Tools" />
+                    <List text="Auto DLM System" />
+                    <List text="Paperwork Reduction" />
+                    <List text="Lead Tracking" />
                   </div>
 
                   <div className="w-full px-3 sm:w-1/2 lg:w-full xl:w-1/2">
-                    <List text="Next.js" />
-                    <List text="Rich documentation" />
-                    <List text="Developer friendly" />
+                    <List text="Dealership Digital Shift" />
+                    <List text="Multi-branch dealership " />
+                    <List text="Affordable Dealer App" />
+                     <List text="User friendly" />
                   </div>
                 </div>
               </div>
             </div>
 
             <div className="w-full px-4 lg:w-1/2">
-              <div className="relative mx-auto aspect-25/24 max-w-[500px] lg:mr-0">
+              <div className="relative mx-auto aspect-25/24 max-w-[700px] lg:mr-0">
                 <Image
-                  src="/images/about/about-image.svg"
+                  src="/images/about/about44.png"
                   alt="about-image"
                   fill
                   className="mx-auto max-w-full drop-shadow-three dark:hidden dark:drop-shadow-none lg:mr-0"
                 />
                 <Image
-                  src="/images/about/about-image-dark.svg"
+                  src="/images/about/about44.png"
                   alt="about-image"
                   fill
                   className="mx-auto hidden max-w-full drop-shadow-three dark:block dark:drop-shadow-none lg:mr-0"

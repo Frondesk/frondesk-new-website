@@ -8,8 +8,8 @@ const Features = () => {
       <section id="features" className="py-16 md:py-20 lg:py-28">
         <div className="container">
           <SectionTitle
-            title="Main Features"
-            paragraph="There are many variations of passages of Lorem Ipsum available but the majority have suffered alteration in some form."
+            title="Solutions"
+            paragraph="Frondesk solutions cover every cornerstone of your aftersales business—helping you maximize customer retention, increase revenue,simplifying operations and more.Discover how our all-in-one platform can transform your dealership into a growth engine and deliver exponential organic success."
             center
           />
 
