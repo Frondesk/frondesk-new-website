@@ -1,14 +1,11 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+// next.config.js
+const isProd = process.env.NODE_ENV === "production";
+
+module.exports = {
+  output: "export", // enables static HTML export
+  basePath: isProd ? "/frondesk-new-website" : "",
+  assetPrefix: isProd ? "/frondesk-new-website" : "",
   images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "cdn.sanity.io",
-        port: "",
-      },
-    ],
+    unoptimized: true, // GitHub Pages doesn’t support Image Optimization
   },
 };
-
-module.exports = nextConfig;
