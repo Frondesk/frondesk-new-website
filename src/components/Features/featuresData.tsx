@@ -61,20 +61,20 @@ const featuresData: Feature[] = [
   <path 
     d="M24 4L10 12v14c0 8 6 14 14 14s14-6 14-14V12L24 4Z" 
     stroke="#532AE5" 
-    stroke-width="3" 
+    strokeWidth="3" 
     fill="none" 
-    stroke-linecap="round" 
-    stroke-linejoin="round"
+    strokeLinecap="round" 
+    strokeLinejoin="round"
   />
 
 
   <path 
     d="M17 24l6 6 12-12" 
     stroke="#532AE5" 
-    stroke-width="3" 
+    strokeWidth="3" 
     fill="none" 
-    stroke-linecap="round" 
-    stroke-linejoin="round"
+    strokeLinecap="round" 
+    strokeLinejoin="round"
   />
 </svg>
 
@@ -94,9 +94,9 @@ const featuresData: Feature[] = [
   fill="none"
 >
  
-  <circle cx="24" cy="24" r="18" stroke="#532AE5" stroke-width="3" />
+  <circle cx="24" cy="24" r="18" stroke="#532AE5" strokeWidth="3" />
 
-  <circle cx="24" cy="24" r="12" stroke="#532AE5" stroke-width="2" fill="none" />
+  <circle cx="24" cy="24" r="12" stroke="#532AE5" strokeWidth="2" fill="none" />
 
   
   <path 
@@ -121,16 +121,16 @@ const featuresData: Feature[] = [
   fill="none"
 >
  
-  <circle cx="24" cy="24" r="22" stroke="#532AE5" stroke-width="2" />
+  <circle cx="24" cy="24" r="22" stroke="#532AE5" strokeWidth="2" />
 
  
   <path 
     d="M14 28h20l-2-7c-.4-1.2-1.4-2-2.6-2H18.6c-1.2 0-2.2.8-2.6 2l-2 7Z" 
     stroke="#532AE5" 
-    stroke-width="2" 
+    strokeWidth="2" 
     fill="none" 
-    stroke-linecap="round" 
-    stroke-linejoin="round"
+    strokeLinecap="round" 
+    strokeLinejoin="round"
   />
   <circle cx="18" cy="30" r="2" fill="#532AE5"/>
   <circle cx="30" cy="30" r="2" fill="#532AE5"/>

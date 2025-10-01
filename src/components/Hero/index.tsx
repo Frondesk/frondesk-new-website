@@ -36,7 +36,7 @@ const Hero = () => {
     d="M80 120 Q100 60 180 60 Q260 60 284 120 L320 140 Q324 150 320 160 H44 Q40 150 44 140 L80 120Z" 
     fill="#532AE5" 
     stroke="#2e1c99" 
-    stroke-width="4"
+    strokeWidth="4"
   />
 
  
@@ -377,7 +377,7 @@ const Hero = () => {
   <path 
     d="M60 95 Q100 70 180 70 Q260 70 300 95" 
     stroke="#fff" 
-    stroke-width="3" 
+    strokeWidth="3" 
     fill="none" 
     opacity="0.3"
   />
