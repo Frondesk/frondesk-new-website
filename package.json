@@ -7,8 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "postbuild": "echo > out/.nojekyll",
     "predeploy": "npm run build",
-  "deploy": "gh-pages -d out"
+    "deploy": "gh-pages -d out"
   },
   "dependencies": {
     "@tailwindcss/postcss": "^4.1.3",
@@ -31,5 +32,4 @@
     "prettier-plugin-tailwindcss": "^0.6.11",
     "typescript": "^5.3.3"
   }
-
 }
