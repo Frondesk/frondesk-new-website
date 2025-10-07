@@ -57,14 +57,14 @@ const Header = () => {
                 } `}
               >
                 <Image
-                  src="frondesk-new-website/images/logo/frondesk-logo1.svg"
+                  src="images/logo/frondesk-logo.svg"
                   alt=""
                   width={140}
                   height={30}
                   className="w-full dark:hidden"
                 />
                 <Image
-                  src="frondesk-new-website/images/logo/frondesk-logo-white.svg"
+                  src="images/logo/frondesk-logo-white.svg"
                   alt=""
                   width={140}
                   height={30}

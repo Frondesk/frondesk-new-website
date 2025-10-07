@@ -14,7 +14,7 @@ const testimonialData: Testimonial[] = [
                            
                           
                             
-    image: "/images/testimonials/auth-01.png",
+    image: "images/testimonials/auth-01.png",
     star: 5,
   },
   {
@@ -27,7 +27,7 @@ const testimonialData: Testimonial[] = [
                            
                            
                          
-    image: "/images/testimonials/auth-02.png",
+    image: "images/testimonials/auth-02.png",
     star: 5,
   },
   {
@@ -36,7 +36,7 @@ const testimonialData: Testimonial[] = [
     designation: "VP Servies - Vivo Toyota",
     content:
       "I’m fully convinced with the growth possibilities Frondesk offers. We’ve a big growth plan for our body shop business for 2023 and Frondesk tools are right on top of our plan.",
-    image: "/images/testimonials/auth-03.png",
+    image: "images/testimonials/auth-03.png",
     star: 5,
   },
 ];

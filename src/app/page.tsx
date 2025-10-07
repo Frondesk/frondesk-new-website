@@ -13,8 +13,8 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
    icons: {
-    icon: "/images/logo/apple-touch-icon.png", 
-    apple: "/images/logo/apple-touch-icon.png",
+    icon: "images/logo/apple-touch-icon.png", 
+    apple: "images/logo/apple-touch-icon.png",
   },
   title: "Frondesk",
   description: "AI-Powered Dealership Management Platform",

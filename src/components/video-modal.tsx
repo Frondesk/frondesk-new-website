@@ -43,7 +43,7 @@ export default function VideoModal({ isOpen, onClose, ...props }: PropsType) {
         {/* <iframe width="100%" height="500" allowFullScreen /> */}
       </div>
       <video width="100%" height="500"  controls autoPlay>
-  <source src="/images/logo/Revolutionize Your Dealership Today with Frondesk Technologies-VEED.mp4" type="video/mp4" />
+  <source src="images/logo/Revolutionize Your Dealership Today with Frondesk Technologies-VEED.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video></div>
     </div>,
