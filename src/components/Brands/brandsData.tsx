@@ -13,7 +13,7 @@ const brandsData: Brand[] = [
     name: "Frondesk",
     href: "https://fixmydent.frondesk.com/login",
     image: "/images/logo/frondesk-logo.s",
-    imageLight: "/images/logo/frondesk-logo.svg",
+    imageLight: "frondesk-new-website/images/logo/frondesk-logo.svg",
   },
   // {
   //   id: 2,
