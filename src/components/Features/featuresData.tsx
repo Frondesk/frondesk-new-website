@@ -8,9 +8,9 @@ const featuresData: Feature[] = [
 <path d="M126.589 33.0486H117.563L117.635 32.8603L116.665 30.8608C113.673 24.7031 103.263 4.31008 95.0045 0.514018L94.0268 0.0576172H38.2249L37.2469 0.514018C28.9741 4.31008 18.5789 24.7031 15.5799 30.8608L14.6089 32.8603L14.6888 33.0486H5.66266C2.93885 33.0486 0.714844 34.9683 0.714844 37.3445V41.9013C0.714844 44.2702 2.93885 46.1972 5.66266 46.1972H8.53131C8.2343 47.6461 8.03858 49.1384 8.03858 50.7032V71.1614C8.03858 77.3046 10.4871 82.709 14.2106 86.0487V102.957C14.2106 105.695 16.4272 107.898 19.151 107.898H30.2853C33.0091 107.898 35.2261 105.695 35.2261 102.957V89.5622H97.0185V102.957C97.0185 105.695 99.2353 107.898 101.966 107.898H113.086C115.832 107.898 118.034 105.695 118.034 102.957V86.0487C121.772 82.709 124.213 77.3046 124.213 71.1614V50.7032C124.213 49.1384 124.018 47.6461 123.713 46.1972H126.589C129.32 46.1972 131.53 44.2702 131.53 41.9085V37.3445C131.53 34.9683 129.32 33.0486 126.589 33.0486ZM40.6302 9.94624H91.607C94.99 12.4963 101.38 22.6529 106.327 32.2952H25.9389C30.8721 22.6529 37.2617 12.4963 40.6302 9.94624Z" fill="#532AE5"/>
 </svg>
     ),
-    title: "Buy & Sell Cars with Automate",
+    title: "Fully Automated Workflow",
     paragraph:
-      "Our AI-powered dealership software manages your complete inventory—new cars, used cars, and resale—while streamlining buying, selling, and inventory status updates. One platform to keep your dealership fast, smart, and profitable.",
+      "Automate every deal to minimize manual work and increase dealership operational efficiency.",
   },
   {
     id: 2,
@@ -43,9 +43,9 @@ const featuresData: Feature[] = [
       <circle cx="30" cy="30" r="2" fill="#532AE5" />
     </svg>
     ),
-    title: "Auto Solutions",
+    title: "Designed for Dealer Groups",
     paragraph:
-      "Auto Solutions is an all-in-one AI-powered platform for dealerships—streamlining operations, boosting efficiency & managing vehicle care. From dent removal, painting & AC  to battery ,everything is handled to keep customers satisfied & business growth. ",
+      "Integrate easily with CRM and inventory platforms to manage dealership networks effectively. ",
   },
   {
     id: 3,
@@ -79,9 +79,9 @@ const featuresData: Feature[] = [
 </svg>
 
     ),
-    title: "Insurance Solutions",
+    title: "Launch 80% Faster to Market",
     paragraph:
-      "Insurance Solutions is an AI-powered platform for dealerships—streamlining policy management, renewals, claims, and follow-ups to boost efficiency, cut lapses, increase revenue, and improve customer retention.",
+      "Speed up onboarding and vehicle listings with AI tools that eliminate traditional delays.",
   },
   {
     id: 4,
@@ -106,9 +106,9 @@ const featuresData: Feature[] = [
 </svg>
 
     ),
-    title: "Tyre Solutions ",
+    title: "Complete Sales Funnel Management ",
     paragraph:
-      "Tyre Solutions is an AI-powered tyre management platform for dealerships—streamlining tyre replacement, alignment, balancing, puncture repair & rotation. Boost workshop efficiency, enhance vehicle performance & deliver higher customer satisfaction.",
+      "Manage inquiries, leads, follow-ups, and sales to guide buyers through purchase journeys.",
   },
   {
     id: 5,
@@ -141,9 +141,9 @@ const featuresData: Feature[] = [
   />
 </svg>
     ),
-    title: "AI Solutions",
+    title: "100% Accurate Damage Detection",
     paragraph:
-      "AI-powered tools for lead management, CRM, reports, DMS & revenue growth. Streamline dealership operations, track sales and aftersales in real time, enhance customer engagement with automated follow-ups and workflows to maximize efficiency and profit.                 ",
+      "AI-powered inspections identify dents, scratches, and damages for dependable vehicle assessments.               ",
   },
   {
     id: 6,
@@ -153,9 +153,9 @@ const featuresData: Feature[] = [
 </svg>
 
     ),
-    title: "Body Shop Solutions",
+    title: "Lead management & CRM",
     paragraph:
-      "AI-powered Body Shop Solutions for dealerships streamline auto damage detection, repair management, and workflow. Track dents, scratches, and repair progress to boost efficiency, accuracy, productivity, and customer satisfaction",
+      "Track, nurture, and manage customer relationships from enquiry to sale within your CRM.",
   },
 ];
 

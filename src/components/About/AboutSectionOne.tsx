@@ -24,7 +24,7 @@ const AboutSectionOne = () => {
           <div className="-mx-4 flex flex-wrap items-center">
             <div className="w-full px-4 lg:w-1/2">
               <SectionTitle
-                title="Frondesk -- AI-Powered Aftersales Solutions for Dealerships."
+                title="Frondesk Technologies Aftersales Solutions for Dealerships."
                 paragraph="Our team combines skilled technologists and automotive aftersales specialists with over 20 years of experience at leading companies like Intel and Toyota. Over the last year, we have assisted numerous dealerships in driving higher revenue and profits, especially in the body shop and aftersales sectors. Leveraging AI-powered digital solutions alongside effective product and process training, we help dealerships achieve rapid success. Many clients have consistently realized up to 300% growth in their body shop business. Our mission is to help car dealerships unlock their true aftersales potential, optimize operations, and tap into untapped revenue streams."
                 mb="44px"
               />

@@ -12,7 +12,7 @@ const Pricing = () => {
       <div className="container">
         <SectionTitle
           title="Simple and Affordable Pricing"
-          paragraph="There are many variations of passages of Lorem Ipsum available but the majority have suffered alteration in some form."
+          paragraph="Our transparent, simple pricing suits all dealer sizes with no hidden fees, no lock-ins, and a pay-as-you-go model—no server or admin costs included."
           center
           width="665px"
         />

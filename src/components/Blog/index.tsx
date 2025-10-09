@@ -11,7 +11,7 @@ const Blog = () => {
       <div className="container">
         <SectionTitle
           title="Our Latest Blogs"
-          paragraph="AI is Transforming Car Dealerships"
+          paragraph="Turbocharge profits and cut operational hassles. Join dealerships who have boosted earnings by switching to our all-in-one solution for new and used car sales, service automation, and customer engagement."
           center
         />
 

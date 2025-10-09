@@ -9,7 +9,7 @@ const Features = () => {
         <div className="container">
           <SectionTitle
             title="Solutions"
-            paragraph="Frondesk solutions cover every cornerstone of your aftersales business—helping you maximize customer retention, increase revenue,simplifying operations and more.Discover how our all-in-one platform can transform your dealership into a growth engine and deliver exponential organic success."
+            paragraph="Accelerate Your  Dealership Success with Frondesk Technologies's Powerful Automotive Management Software"
             center
           />
 
