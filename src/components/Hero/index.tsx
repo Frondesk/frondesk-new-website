@@ -17,7 +17,7 @@ const Hero = () => {
                 Rev Up Your Revenue: The Ultimate Dealership Automation Platform
                 </h1>
                 <p className="mb-12 text-base leading-relaxed! text-body-color dark:text-body-color-dark sm:text-lg md:text-xl text-justify">
-                "Unlock more profits for your vehicle dealership business with industry-leading software that optimizes operations, enhances efficiency, and improves every aspect of your dealership- Frondesk Technologies is trusted by top dealerships nationwide for reliability and results.
+                "Unlock more profits for your vehicle dealership business with industry-leading software that optimizes operations, enhances efficiency, and improves every aspect of your dealership- Frondesk Technologies is trusted by top dealerships nationwide for reliability and results."
                 </p>
                 <div className="flex flex-col items-center justify-center space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">
                   <Link
