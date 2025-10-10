@@ -39,6 +39,7 @@ const AboutSectionOne = () => {
                     <List text="Auto DLM System" />
                     <List text="Paperwork Reduction" />
                     <List text="Lead Tracking" />
+                    <List text="Data & Analytics" />
                   </div>
 
                   <div className="w-full px-3 sm:w-1/2 lg:w-full xl:w-1/2">
@@ -46,6 +47,7 @@ const AboutSectionOne = () => {
                     <List text="Multi-branch dealership " />
                     <List text="Affordable Dealer App" />
                      <List text="User friendly" />
+                     <List text="Sales Performance" />
                   </div>
                 </div>
               </div>
