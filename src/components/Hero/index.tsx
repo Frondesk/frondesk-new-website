@@ -14,7 +14,7 @@ const Hero = () => {
               <div className="mx-auto max-w-[800px] text-center">
                 
                 <h1 className="mb-5 text-3xl font-bold leading-tight text-black dark:text-white sm:text-4xl sm:leading-tight md:text-5xl md:leading-tight">
-                Rev Up Your Revenue: The Ultimate Dealership Automation Platform
+                Rev Up Your Revenue: The Ultimate AI-Powered Dealership Automation Platform
                 </h1>
                 <p className="mb-12 text-base leading-relaxed! text-body-color dark:text-body-color-dark sm:text-lg md:text-xl text-justify">
                 Unlock more profits for your vehicle dealership business with industry-leading software that optimizes operations, enhances efficiency, and improves every aspect of your dealership- Frondesk Technologies is trusted by top dealerships nationwide for reliability and results.
