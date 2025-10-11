@@ -9,7 +9,7 @@ const blogData: Blog[] = [
     image: "/images/blog/dent-blogs.png",
     author: {
       name: "Frondesk Technologies",
-      image: "/images/blog/author-03.png",
+      image: "images/blog/author-03.png",
       designation: "DENT ",
     },
     tags: ["creative"],
@@ -23,7 +23,7 @@ const blogData: Blog[] = [
     image: "/images/blog/tyre-blogs.png",
     author: {
       name: "Frondesk Technologies",
-      image: "/images/blog/author-02.png",
+      image: "images/blog/author-02.png",
       designation: "Tyre",
     },
     tags: ["computer"],
@@ -37,7 +37,7 @@ const blogData: Blog[] = [
     image: "/images/blog/insurance-blogs.png",
     author: {
       name: "Frondesk Technologies",
-      image: "/images/blog/author-03.png",
+      image: "images/blog/author-03.png",
       designation: "Insurance",
     },
     tags: ["design"],
