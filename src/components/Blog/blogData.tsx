@@ -6,7 +6,7 @@ const blogData: Blog[] = [
     title: "Automated AI Dent Detection",
     paragraph:
       "AI Dent Detection is fully automated, instantly identifying dents and damages on cars with high accuracy. It saves time, reduces manual effort, and ensures faster, more reliable assessments.",
-    image: "/images/blog/dent-blogs.png",
+    image: "images/blog/dent-blogs.png",
     author: {
       name: "Frondesk Technologies",
       image: "images/blog/author-03.png",
@@ -20,7 +20,7 @@ const blogData: Blog[] = [
     title: "Automated Tyre Service",
     paragraph:
       "Tyre automation streamlines every aspect of tyre services, from tracking wear to scheduling replacements with ease. It eliminates manual errors, saves time & ensures customers get faster, more reliable tyre care.",
-    image: "/images/blog/tyre-blogs.png",
+    image: "images/blog/tyre-blogs.png",
     author: {
       name: "Frondesk Technologies",
       image: "images/blog/author-02.png",
@@ -34,7 +34,7 @@ const blogData: Blog[] = [
     title: "Automated Insurance Service",
     paragraph:
       "Automated insurance simplifies policy management by handling renewals & claims automatically. It reduces lapses, boosts customer satisfaction & keeps your dealership’s insurance services running smoothly",
-    image: "/images/blog/insurance-blogs.png",
+    image: "images/blog/insurance-blogs.png",
     author: {
       name: "Frondesk Technologies",
       image: "images/blog/author-03.png",
