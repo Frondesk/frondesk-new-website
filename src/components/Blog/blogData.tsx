@@ -12,13 +12,14 @@ const blogData: Blog[] = [
       "AI Dent Detection is fully automated, instantly identifying dents and damages on cars with high accuracy. It saves time, reduces manual effort, and ensures faster, more reliable assessments.",
   //  image: "images/blog/dent-blogs.png",
  // image: `${basePath}images/blog/dent111.png`,
-    image: `${withBasePath('/images/blog/dent111.png')}`,
+    image: `${withBasePath('images/blog/dent111.png')}`,
     
     author: {
       name: "Frondesk Technologies",
     //  image: "images/blog/author-03.png",
     
-    image: `${basePath}images/blog/author-03.png`,
+  //  image: `${basePath}images/blog/author-03.png`,
+  image: `${withBasePath('images/blog/author-03.png')}`,
       designation: "DENT ",
     },
     tags: ["creative"],
@@ -31,11 +32,12 @@ const blogData: Blog[] = [
       "Tyre automation streamlines every aspect of tyre services, from tracking wear to scheduling replacements with ease. It eliminates manual errors, saves time & ensures customers get faster, more reliable tyre care.",
    // image: "images/blog/tyre-blogs.png",
   //  image: `${basePath}images/blog/tyre111.png`,
-    image: `${withBasePath('/images/blog/tyre111.png')}`,
+    image: `${withBasePath('images/blog/tyre111.png')}`,
 
     author: {
       name: "Frondesk Technologies",
-      image: `${basePath}images/blog/author-03.png`,
+     // image: `${basePath}images/blog/author-03.png`,
+     image: `${withBasePath('images/blog/author-03.png')}`,
       //image: "images/blog/tyre-blogs.png",
       designation: "Tyre",
     },
@@ -49,11 +51,12 @@ const blogData: Blog[] = [
       "Automated insurance simplifies policy management by handling renewals & claims automatically. It reduces lapses, boosts customer satisfaction & keeps your dealership’s insurance services running smoothly",
    //image: `${basePath}images/blog/fmi2.png`,
       // image: "images/blog/insurance-blogs.png",
-          image: `${withBasePath('/images/blog/fmi2.png')}`,
+          image: `${withBasePath('images/blog/fmi2.png')}`,
 
     author: {
       name: "Frondesk Technologies",
-      image: `${basePath}images/blog/author-03.png`,
+     // image: `${basePath}images/blog/author-03.png`,
+      image: `${withBasePath('images/blog/author-03.png')}`,
      // image: "images/blog/author-03.png",
       designation: "Insurance",
     },
