@@ -67,7 +67,7 @@ const AboutSectionOne = () => {
             <div className="w-full px-4 lg:w-1/2">
               <div className="relative mx-auto aspect-25/24 max-w-[700px] lg:mr-0">
                 <Image
-                 src={withBasePath('images/about/abo.png')} 
+                 src={withBasePath('/images/about/abo.png')} 
                
                   // src={`${basePath}images/about/abo.png`}
                   //src={getImageSrc('/images/about/about44.png')}
@@ -76,7 +76,7 @@ const AboutSectionOne = () => {
                   className="mx-auto max-w-full drop-shadow-three dark:hidden dark:drop-shadow-none lg:mr-0"
                 />
                 <Image
-               src={withBasePath('images/about/abo.png')} 
+               src={withBasePath('/images/about/abo.png')} 
                   //src={`${basePath}images/about/abo.png`}
                 // src={getImageSrc('/images/about/about44.png')}
                   alt="about-image"
