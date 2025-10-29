@@ -6,6 +6,10 @@ module.exports = {
   trailingSlash: true,
   basePath: isProd ? "/frondesk-new-website" : "",
   assetPrefix: isProd ? "/frondesk-new-website/" : "",
+publicRuntimeConfig: {
+    basePath: isProd ? '/frondesk-new-website' : '',
+},
+
   images: {
     unoptimized: true, // GitHub Pages doesn’t support Image Optimization
   }

@@ -1,5 +1,9 @@
 import Image from "next/image";
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+function withBasePath(src) {
+  const normalizedSrc = src.startsWith('/') ? src.slice(1) : src;
+  return `${basePath}/${normalizedSrc}`;
+}
 
 const AboutSectionTwo = () => {
   return (
@@ -12,13 +16,15 @@ const AboutSectionTwo = () => {
               data-wow-delay=".15s"
             >
               <Image
-                src={`${basePath}images/about/abo1.png`}
+               src={withBasePath('/images/about/abo1.png')} 
+               // src={`${basePath}images/about/abo1.png`}
                 alt="about image"
                 fill
                 className="drop-shadow-three dark:hidden dark:drop-shadow-none"
               />
               <Image
-                src={`${basePath}images/about/abo1.png`}
+               src={withBasePath('/images/about/abo1.png')} 
+                //src={`${basePath}images/about/abo1.png`}
                 alt="about image"
                 fill
                 className="hidden drop-shadow-three dark:block dark:drop-shadow-none"
