@@ -3,7 +3,7 @@ import TagButton from "@/components/Blog/TagButton";
 import Image from "next/image";
 
 import { Metadata } from "next";
-
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 export const metadata: Metadata = {
   title: "Blog Details Page ",
   //description: "This is Blog Details Page for Startup Nextjs Template",
@@ -19,8 +19,7 @@ const BlogDetailsPage = () => {
             <div className="w-full px-4 lg:w-8/12">
               <div>
                 <h2 className="mb-8 text-3xl leading-tight font-bold text-black sm:text-4xl sm:leading-tight dark:text-white">
-                  10 amazing sites to download stock photos & digital assets for
-                  free
+                Automated Vehicle Damage Detection
                 </h2>
                 <div className="border-body-color/10 mb-10 flex flex-wrap items-center justify-between border-b pb-4 dark:border-white/10">
                   <div className="flex flex-wrap items-center">
@@ -28,7 +27,8 @@ const BlogDetailsPage = () => {
                       <div className="mr-4">
                         <div className="relative h-10 w-10 overflow-hidden rounded-full">
                           <Image
-                            src="images/blog/author-02.png"
+                          src={`${basePath}/images/blog/web.png`}
+                           // src="/images/blog/web.png"
                             alt="author"
                             fill
                           />
@@ -36,7 +36,7 @@ const BlogDetailsPage = () => {
                       </div>
                       <div className="w-full">
                         <span className="text-body-color mb-1 text-base font-medium">
-                          By <span>Musharof Chy</span>
+                          By <span>Frondesk Technologies</span>
                         </span>
                       </div>
                     </div>
@@ -104,14 +104,13 @@ const BlogDetailsPage = () => {
                 </div>
                 <div>
                   <p className="text-body-color mb-10 text-base leading-relaxed font-medium sm:text-lg sm:leading-relaxed lg:text-base lg:leading-relaxed xl:text-lg xl:leading-relaxed">
-                    Duis aute irure dolor in reprehenderit in voluptate velit
-                    esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-                    occaecat cupidatat.
+                 AI-integrated vehicle inspection system providing automatic dent and damage detection plus detailed reports to empower customer decision-making
                   </p>
                   <div className="mb-10 w-full overflow-hidden rounded-sm">
                     <div className="relative aspect-97/60 w-full sm:aspect-97/44">
                       <Image
-                        src="images/blog/blog-details-02.jpg"
+                      src={`${basePath}/images/blog/web.png`}
+                        // src="/images/blog/web.jpg"
                         alt="image"
                         fill
                         className="object-cover object-center"

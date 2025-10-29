@@ -4,6 +4,7 @@ import VideoModal from "@/components/video-modal";
 import Image from "next/image";
 import { useState } from "react";
 import SectionTitle from "../Common/SectionTitle";
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
 export default function Video() {
   const [isOpen, setOpen] = useState(false);
@@ -37,9 +38,10 @@ export default function Video() {
             <div className="w-full px-4">
               <div className="mx-auto max-w-[770px] overflow-hidden rounded-md">
                 {!isHide &&
-                <div className="relative aspect-77/40 items-center justify-center">
+                <div className="relative aspect-15/10 items-center justify-center">
                   <Image
-                    src="images/hero/hero1.png"
+                    src={`${basePath}images/hero/ai.png`}
+                   // src="images/hero/hero1.png"
                     alt="video image"
                     className="object-cover"
                     fill
