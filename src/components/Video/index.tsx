@@ -5,7 +5,11 @@ import Image from "next/image";
 import { useState } from "react";
 import SectionTitle from "../Common/SectionTitle";
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+function withBasePath(src) {
 
+  const normalizedSrc = src.startsWith('/') ? src.slice(1) : src;
+  return `${basePath}/${normalizedSrc}`;
+}
 export default function Video() {
   const [isOpen, setOpen] = useState(false);
   const [isHide, setHide] = useState(false);
@@ -40,7 +44,8 @@ export default function Video() {
                 {!isHide &&
                 <div className="relative aspect-15/10 items-center justify-center">
                   <Image
-                    src={`${basePath}images/hero/ai.png`}
+                    src={withBasePath('/images/hero/ai.png')} 
+                  //  src={`${basePath}images/hero/ai.png`}
                    // src="images/hero/hero1.png"
                     alt="video image"
                     className="object-cover"

@@ -3,7 +3,11 @@ import TagButton from "@/components/Blog/TagButton";
 import Image from "next/image";
 
 import { Metadata } from "next";
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+function withBasePath(src) {
+ const basePath = process.env.NODE_ENV === "production" ? "/frondesk-new-website" : "";
+  const normalizedSrc = src.startsWith('/') ? src.slice(1) : src;
+  return `${basePath}/${normalizedSrc}`;
+}
 export const metadata: Metadata = {
   title: "Blog Details Page ",
   //description: "This is Blog Details Page for Startup Nextjs Template",
@@ -27,7 +31,8 @@ const BlogDetailsPage = () => {
                       <div className="mr-4">
                         <div className="relative h-10 w-10 overflow-hidden rounded-full">
                           <Image
-                          src={`${basePath}/images/blog/web.png`}
+                          src={withBasePath('/images/blog/web.png')} 
+                          //src={`${basePath}/images/blog/web.png`}
                            // src="/images/blog/web.png"
                             alt="author"
                             fill
@@ -109,7 +114,8 @@ const BlogDetailsPage = () => {
                   <div className="mb-10 w-full overflow-hidden rounded-sm">
                     <div className="relative aspect-97/60 w-full sm:aspect-97/44">
                       <Image
-                      src={`${basePath}/images/blog/web.png`}
+                      src={withBasePath('/images/blog/web.png')} 
+                      //src={`${basePath}/images/blog/web.png`}
                         // src="/images/blog/web.jpg"
                         alt="image"
                         fill

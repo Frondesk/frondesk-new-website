@@ -1,6 +1,6 @@
 import { Blog } from "@/types/blog";
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 function withBasePath(src) {
+ const basePath = process.env.NODE_ENV === "production" ? "/frondesk-new-website" : "";
   const normalizedSrc = src.startsWith('/') ? src.slice(1) : src;
   return `${basePath}/${normalizedSrc}`;
 }

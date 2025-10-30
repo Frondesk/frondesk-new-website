@@ -5,8 +5,11 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import ThemeToggler from "./ThemeToggler";
 import menuData from "./menuData";
-
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+function withBasePath(src) {
+ const basePath = process.env.NODE_ENV === "production" ? "/frondesk-new-website" : "";
+  const normalizedSrc = src.startsWith('/') ? src.slice(1) : src;
+  return `${basePath}/${normalizedSrc}`;
+}
 
 const Header = () => {
   // Navbar toggle
@@ -59,14 +62,15 @@ const Header = () => {
                 } `}
               >
                 <Image
-                  src="images/logo/frondesk-logo.svg"
+                src={withBasePath('/images/logo/frondesk-logo.svg')} 
+                //  src="images/logo/frondesk-logo.svg"
                   alt=""
                   width={140}
                   height={30}
                   className="w-full dark:hidden"
                 />
                 <Image
-                  src="images/logo/frondesk-logo-white.svg"
+                  src={withBasePath('/images/logo/frondesk-logo-white.svg')} 
                   alt=""
                   width={140}
                   height={30}
