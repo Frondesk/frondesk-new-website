@@ -13,10 +13,10 @@ const SigninPage = () => {
     <>
       <section className="relative z-10 overflow-hidden pt-36 pb-16 md:pb-20 lg:pt-[180px] lg:pb-28">
         <div className="container">
-          <div className="-mx-4 flex flex-wrap">
-            <div className="w-full px-4">
-              <div className="shadow-three dark:bg-dark mx-auto max-w-[500px] rounded-sm bg-white px-6 py-10 sm:p-[60px]">
-                <h3 className="mb-3 text-center text-2xl font-bold text-black sm:text-3xl dark:text-white">
+          {/* <div className="-mx-4 flex flex-wrap"> */}
+            {/* <div className="w-full px-4"> */}
+            {/* //</div></div>  <div className="shadow-three dark:bg-dark mx-auto max-w-[500px] rounded-sm bg-white px-6 py-10 sm:p-[60px]"> */}
+                {/* <h3 className="mb-3 text-center text-2xl font-bold text-black sm:text-3xl dark:text-white">
                   Sign in to your account
                 </h3>
                 <p className="text-body-color mb-11 text-center text-base font-medium">
@@ -223,7 +223,74 @@ const SigninPage = () => {
                 <stop offset="1" stopColor="#4A6CF7" stopOpacity="0" />
               </linearGradient>
             </defs>
-          </svg>
+          </svg> */}
+
+
+   <h3 className="mb-3 text-center text-2xl font-bold text-black sm:text-3xl dark:text-white">
+                 Frondesk Technologies
+                </h3>
+ <h2 className="">This Privacy Policy applies to FRONDESK</h2>
+ <p className="text-body-color mb-3 text-justify text-base font-medium">FRONDESK Technology & Solutions Private Limited, having its registered office at CA Site #1, HAL 3rd Stage, Kodihalli, Bangalore 560008, recognises the importance of maintaining your privacy. We value your privacy and appreciate your trust in us. This Policy describes how we treat the limited user information that we collect through FRONDESK portalor the FRONDESK apps available on Android or IOS platforms and any other offline sources. This Privacy Policy applies to current and former visitors and customers/partners to our portal, mobile apps and to our registered customers/partners. By visiting and/or using our portal or mobile apps, you agree to this Privacy Policy.</p>
+ <h2 className="">Information we collect</h2>      
+     <h2 className="">Contact information. </h2>     <p className="text-body-color mb-3 text-base font-medium">We might collect yourname, email, mobile number, phone number, street, city, state, pin code,  country and IP address.</p>
+       <h2 className="">Information you post:</h2>  <p className="text-body-color mb-3 text-base font-medium">We collect information you post in a public space on our portal or app or on a third-party social media site belonging to FRONDESK or its registered partners.</p>
+         <h2 className="">Demographic information:  </h2> <p className="text-body-color mb-3 text-base font-medium">We may collect demographic information about you or any other information provided by you directly or indirectly during the use of our portal or app. We might collect this information as a part improving the user experience or for the purpose of a survey also.</p> 
+        <h2 className="">Other information: </h2> <p className="text-body-color mb-3 text-base font-medium">If you use our portal or mobile apps, we may collect information about your IP address and the browser and/or device you're using. We might look at what site you came from, duration of time spent on our portal, apps, pages accessed or what site you visit when you leave us. We might also collect the type of device you are using, or the version of the operating system your computer or device is running.
+<h2 className="">We collect information directly from you: </h2> <p className="text-body-color mb-3 text-base font-medium"> We collect information directly from you when you register/login. We also collect information if you post a comment on our portal, apps or ask us a question through phone or email.</p>
+</p>
+       <h2 className="">We collect information from you passively:  </h2> <p className="text-body-color mb-3 text-base font-medium">We use analytical tools like Google Analytics, Google Webmaster, browser cookies and web beacons for collecting information about your usage of our website or apps. </p>
+        <h2 className="">We get information about you from third parties: </h2>  <p className="text-body-color mb-3 text-base font-medium">For example, if you use an integrated social media feature on our website or apps. The third-party social media site will give us certain information about you. This could include your name and email address.
+
+</p>
+<h2>Use of your personal information</h2><br></br>
+<h2>We use information to contact you: </h2>  <p className="text-body-color mb-3 text-base font-medium">We might use the information you provide to contact you for confirmation of a transaction on the FRONDESK website/Apps or for other promotional purposes.</p>
+    <h2>We use information to respond to your requests or questions</h2>   <br></br>
+      <h2>We use information to improve our products and services:  </h2>  <p className="text-body-color mb-3 text-base font-medium">We might use your information to customize your experience with us. This could include displaying content based upon your preferences.</p>
+       <h2>We use information to look at site trends and customer interests:</h2> <p className="text-body-color mb-3 text-base font-medium">We may use your information to make our portal/apps and products better. We may combine information we get from you with information about you we get from third parties.</p>
+       <h2>We use information for security purposes: </h2> <p className="text-body-color mb-3 text-base font-medium">We may use information to protect our company, our customers/partners, or our portals as per the laws.</p>
+        <h2>We use information for marketing purposes:  </h2> <p className="text-body-color mb-3 text-base font-medium">      We might send you information about special promotions or offers. We might also tell you about new features or products. These might be our own offers or products, or third-party offers or products we think you might find interesting.
+</p>
+ <h2>We use information for marketing purposes:  </h2>  <p className="text-body-color mb-3 text-base font-medium"> We might send you emails or SMS/texts about your account.</p>
+
+ <h2>We use information to send you transactional communications:</h2> 
+
+
+We might send you emails or SMS/texts about your account.  <p className="text-body-color mb-3 text-base font-medium"> We might send you emails or SMS/texts about your account. 
+</p> <br></br>
+We use information as otherwise permitted by law.
+
+
+
+<h2>Sharing of information with third-parties</h2>
+
+<h2>We may share information if we think we have to in order to comply with the law or to protect ourselves:</h2> <p className="text-body-color mb-3 text-base font-medium">We will share information to respond to a court order or subpoena. We may also share it if a government agency or investigatory body requests. Or, we might also share information when we are investigating potential/suspected fraud. </p>
+<h2>We may share information with any successor to all or part of our business. </h2> 
+  <p className="text-body-color mb-3 text-base font-medium">For example, if part of our business is sold, we may give our customer list as part of that transaction.</p> 
+<h2>We may share your information for reasons not described in this policy:</h2>  <p className="text-body-color mb-3 text-base font-medium"> In such cases, we will inform you before we do this.However, we do not sell, trade or share your information to any other third parties who are not directly or indirectly involved in our business for any commercial purpose or gains.</p>
+
+<h2>Email Opt-Out</h2> <p className="text-body-color mb-3 text-base font-medium">To stop receiving our promotional emails, please email admin@frondesk.com with subject ‘Optout’. It may take about ten days to process your request. </p>
+
+<h2>Third party sites</h2> <p className="text-body-color mb-3 text-base font-medium">If you click on one of the links to third party websites, you may be taken to websites we do not control. This policy does not apply to the privacy practices of those websites. Read the privacy policy of other websites carefully. We are not responsible for these third-party sites.
+
+</p>
+
+<h2>Grievance Officer</h2> <p className="text-body-color mb-3 text-base font-medium">In accordance with Information Technology Act 2000 and rules made there under, the name and contact details of the Grievance Officer are provided below:</p>
+Grievance Officer <br></br>
+
+Frondesk Technology & Solutions Pvt Ltd  <br></br>
+
+CA Site #1, HAL 3rd Stage, <br></br>
+
+Kodihalli, Bangalore 560008 <br></br>
+
+Email: admin@frondesk.com <br></br>
+
+ <p className="text-body-color mb-3 text-base font-medium">If you have any questions about this Policy or other privacy concerns, you can also email us at admin@frondesk.com</p>
+
+<h2>Updates to this policy</h2>  <p className="text-body-color mb-3 text-base font-medium">This policy is subject to updates from time to time. We will notify you of any material changes to this policy as required by law. We will also post an updated copy on our website/app. Please check our site/app periodically for updates.</p>
+<h2>Jurisdiction</h2> <p className="text-body-color mb-3 text-base font-medium">If you choose to visit the website or install our mobile app, your visit/installation and any dispute over privacy are subject to this Policy and terms of use. In addition to the foregoing, any disputes arising under this Policy shall be governed by the laws of India and legal jurisdiction shall be Bangalore.
+
+ </p>
         </div>
       </section>
     </>

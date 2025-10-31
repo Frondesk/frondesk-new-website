@@ -25,6 +25,7 @@ const menuData: Menu[] = [
     path: "/contact",
     newTab: false,
   },
+  
   {
     id: 4,
     title: "Pages",
@@ -54,6 +55,12 @@ const menuData: Menu[] = [
         path: "/blog-sidebar",
         newTab: false,
       },
+      //   {
+      //   id: 49,
+      //   title: "Blog Sidebar1 Page",
+      //   path: "/blog-sidebar1",
+      //   newTab: false,
+      // },
       // {
       //   id: 45,
       //   title: "Blog Details Page",
@@ -78,6 +85,7 @@ const menuData: Menu[] = [
         path: "/error",
         newTab: false,
       },
+    
     ],
   },
 ];
