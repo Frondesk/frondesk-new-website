@@ -6,7 +6,11 @@ import Image from "next/image";
 
 
 import { Metadata } from "next";
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+function withBasePath(src) {
+ const basePath = process.env.NODE_ENV === "production" ? "/frondesk-new-website" : "";
+  const normalizedSrc = src.startsWith('/') ? src.slice(1) : src;
+  return `${basePath}/${normalizedSrc}`;
+}
 export const metadata: Metadata = {
   title: "Blog Details Page ",
   //description: "This is Blog Details Page for Frondesk Technologies",
@@ -114,7 +118,8 @@ const BlogSidebarPage = () => {
                   <div className="mb-10 w-full overflow-hidden rounded-sm">
                     <div className="relative aspect-97/60 w-full sm:aspect-97/44">
                       <Image
-                      src={`${basePath}/images/blog/web.png`}
+                      src={withBasePath('/images/blog/web.png')} 
+                    //  src={`${basePath}/images/blog/web.png`}
                       // src="/images/blog/web.jpg"
                         alt="image"
                        // fill
@@ -323,7 +328,7 @@ const BlogSidebarPage = () => {
                     One Platform. Multiple Solutions.
                   </p>
                   <div className="items-center justify-between sm:flex">
-                    <div className="mb-5">
+                    {/* <div className="mb-5">
                       <h4 className="text-body-color mb-3 text-sm font-medium">
                         Popular Tags :
                       </h4>
@@ -332,15 +337,15 @@ const BlogSidebarPage = () => {
                         <TagButton text="Development" />
                         <TagButton text="Info" />
                       </div>
-                    </div>
-                    <div className="mb-5">
+                    </div> */}
+                    {/* <div className="mb-5">
                       <h5 className="text-body-color mb-3 text-sm font-medium sm:text-right">
                         Share this post :
                       </h5>
                       <div className="flex items-center sm:justify-end">
                         <SharePost />
                       </div>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               </div>
@@ -374,38 +379,41 @@ const BlogSidebarPage = () => {
               </div>
               <div className="shadow-three dark:bg-gray-dark mb-10 rounded-xs bg-white dark:shadow-none">
                 <h3 className="border-body-color/10 border-b px-8 py-4 text-lg font-semibold text-black dark:border-white/10 dark:text-white">
-                  Related Posts
+                 Claim Automation
                 </h3>
                 <ul className="p-8">
                   <li className="border-body-color/10 mb-6 border-b pb-6 dark:border-white/10">
                     <RelatedPost
-                      title="Best way to boost your online sales."
-                      image="images/blog/post-01.jpg"
+                      title="Automatically detect all damages, including those that are hidden."
+                     
+                     // image="images/blog/post-01.jpg"
+                      image={withBasePath('/images/blog/post-01.jpg')}
                       slug="#"
                       date="12 Feb 2025"
                     />
                   </li>
                   <li className="border-body-color/10 mb-6 border-b pb-6 dark:border-white/10">
                     <RelatedPost
-                      title="50 Best web design tips & tricks that will help you."
-                      image="images/blog/post-02.jpg"
+                      title="Swift, automated assessment and marking of damage severity."
+                       image={withBasePath('/images/blog/post-02.jpg')}
                       slug="#"
                       date="15 Feb, 2024"
                     />
                   </li>
                   <li>
                     <RelatedPost
-                      title="The 8 best landing page builders, reviewed"
-                      image="images/blog/post-03.jpg"
+                      title="Generate full damage specifications and component-level repair cost estimates."
+                     image={withBasePath('/images/blog/post-02.jpg')}
                       slug="#"
                       date="05 Jun, 2024"
                     />
                   </li>
+                
                 </ul>
               </div>
               <div className="shadow-three dark:bg-gray-dark mb-10 rounded-xs bg-white dark:shadow-none">
                 <h3 className="border-body-color/10 border-b px-8 py-4 text-lg font-semibold text-black dark:border-white/10 dark:text-white">
-                  Popular Category
+                  Driving Dealership Revenue & Efficiency with Frondesk Technologies
                 </h3>
                 <ul className="px-8 py-6">
                   <li>
@@ -413,7 +421,7 @@ const BlogSidebarPage = () => {
                       href="#0"
                       className="text-body-color hover:text-primary mb-3 inline-block text-base font-medium"
                     >
-                      Tailwind Templates
+                     Focuses on speed and efficiency
                     </a>
                   </li>
                   <li>
@@ -421,7 +429,7 @@ const BlogSidebarPage = () => {
                       href="#0"
                       className="text-body-color hover:text-primary mb-3 inline-block text-base font-medium"
                     >
-                      Landing page
+                      Directly addresses revenue
                     </a>
                   </li>
                   <li>
@@ -429,7 +437,7 @@ const BlogSidebarPage = () => {
                       href="#0"
                       className="text-body-color hover:text-primary mb-3 inline-block text-base font-medium"
                     >
-                      Startup
+                      Builds customer trust and speeds up transactions
                     </a>
                   </li>
                   <li>
@@ -437,7 +445,7 @@ const BlogSidebarPage = () => {
                       href="#0"
                       className="text-body-color hover:text-primary mb-3 inline-block text-base font-medium"
                     >
-                      Business
+                      Highlights the ability to grow volume without adding staff
                     </a>
                   </li>
                   <li>
@@ -445,12 +453,21 @@ const BlogSidebarPage = () => {
                       href="#0"
                       className="text-body-color hover:text-primary mb-3 inline-block text-base font-medium"
                     >
-                      Multipurpose
+                      The fundamental shift from paper to digital processes
+                      
+                    </a>
+                  </li>
+                   <li>
+                    <a
+                      href="#0"
+                      className="text-body-color hover:text-primary mb-3 inline-block text-base font-medium"
+                    >
+                     Turn real-time data into a competitive advantage
                     </a>
                   </li>
                 </ul>
               </div>
-              <div className="shadow-three dark:bg-gray-dark mb-10 rounded-xs bg-white dark:shadow-none">
+              {/* <div className="shadow-three dark:bg-gray-dark mb-10 rounded-xs bg-white dark:shadow-none">
                 <h3 className="border-body-color/10 border-b px-8 py-4 text-lg font-semibold text-black dark:border-white/10 dark:text-white">
                   Popular Tags
                 </h3>
@@ -461,7 +478,7 @@ const BlogSidebarPage = () => {
                   <TagButton text="Startup" />
                   <TagButton text="Business" />
                 </div>
-              </div>
+              </div> */}
 
               <NewsLatterBox />
             </div>

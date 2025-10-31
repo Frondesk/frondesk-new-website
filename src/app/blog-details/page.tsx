@@ -99,12 +99,12 @@ const BlogDetailsPage = () => {
                     </div>
                   </div>
                   <div className="mb-5">
-                    <a
-                      href="#0"
+                    {/* <a
+                      href="#"
                       className="bg-primary inline-flex items-center justify-center rounded-full px-4 py-2 text-sm font-semibold text-white"
                     >
                       Design
-                    </a>
+                    </a> */}
                   </div>
                 </div>
                 <div>
@@ -320,7 +320,7 @@ const BlogDetailsPage = () => {
                     mattis vulputate cupidatat.
                   </p>
                   <div className="items-center justify-between sm:flex">
-                    <div className="mb-5">
+                    {/* <div className="mb-5">
                       <h4 className="text-body-color mb-3 text-sm font-medium">
                         Popular Tags :
                       </h4>
@@ -329,15 +329,15 @@ const BlogDetailsPage = () => {
                         <TagButton text="Development" />
                         <TagButton text="Info" />
                       </div>
-                    </div>
-                    <div className="mb-5">
+                    </div> */}
+                    {/* <div className="mb-5">
                       <h5 className="text-body-color mb-3 text-sm font-medium sm:text-right">
                         Share this post :
                       </h5>
                       <div className="flex items-center sm:justify-end">
                         <SharePost />
                       </div>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               </div>

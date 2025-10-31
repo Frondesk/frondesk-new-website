@@ -1,7 +1,11 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-
+function withBasePath(src) {
+ const basePath = process.env.NODE_ENV === "production" ? "/frondesk-new-website" : "";
+  const normalizedSrc = src.startsWith('/') ? src.slice(1) : src;
+  return `${basePath}/${normalizedSrc}`;
+}
 const Footer = () => {
   return (
     <>
@@ -12,14 +16,16 @@ const Footer = () => {
               <div className="mb-12 max-w-[360px] lg:mb-16">
                 <Link href="/" className="mb-8 inline-block">
                   <Image
-                    src="images/logo/frondesk-logo.svg"
+                  src={withBasePath('/images/logo/frondesk-logo.svg')} 
+                   // src="images/logo/frondesk-logo.svg"
                     alt=""
                     className="w-full dark:hidden"
                     width={140}
                     height={30}
                   />
                   <Image
-                    src="images/logo/frondesk-logo-white.svg"
+                  src={withBasePath('/images/logo/frondesk-logo-white.svg')} 
+                   //src="images/logo/frondesk-logo-white.svg"
                     alt=""
                     className="hidden w-full dark:block"
                     width={140}

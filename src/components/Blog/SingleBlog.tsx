@@ -8,7 +8,7 @@ const SingleBlog = ({ blog }: { blog: Blog }) => {
     <>
       <div className="group shadow-one hover:shadow-two dark:bg-dark dark:hover:shadow-gray-dark relative overflow-hidden rounded-xs bg-white duration-300">
         <Link
-          href="#"
+          href="blog-sidebar"
          // className="relative block aspect-37/18 w-full"
           className="relative block aspect-20/14"
         >
@@ -20,7 +20,7 @@ const SingleBlog = ({ blog }: { blog: Blog }) => {
         <div className="p-6 sm:p-8 md:px-6 md:py-8 lg:p-8 xl:px-5 xl:py-8 2xl:p-8">
           <h3>
             <Link
-              href="#blog-sidebar"
+              href="blog-sidebar"
               className="hover:text-primary dark:hover:text-primary mb-4 block text-xl font-bold text-black sm:text-2xl dark:text-white"
             >
               {title}
