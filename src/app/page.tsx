@@ -10,7 +10,7 @@ import Pricing from "@/components/Pricing";
 import Testimonials from "@/components/Testimonials";
 import Video from "@/components/Video";
 import { Metadata } from "next";
-
+import BlogSecondPage from "./blog-second/page";
 
 export const metadata: Metadata = {
    icons: {
@@ -30,6 +30,7 @@ export default function Home() {
       <Features />
       <Video />
       
+   {/* <BlogSecondPage/> */}
       <AboutSectionOne />
       <AboutSectionTwo />
       <Brands />

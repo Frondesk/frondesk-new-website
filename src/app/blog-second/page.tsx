@@ -4,29 +4,21 @@ import TagButton from "@/components/Blog/TagButton";
 import NewsLatterBox from "@/components/Contact/NewsLatterBox";
 import Image from "next/image";
 
-
-import { Metadata } from "next";
 function withBasePath(src) {
+ //const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
  const basePath = process.env.NODE_ENV === "production" ? "/frondesk-new-website" : "";
   const normalizedSrc = src.startsWith('/') ? src.slice(1) : src;
   return `${basePath}/${normalizedSrc}`;
 }
-export const metadata: Metadata = {
-  title: "Blog Details Page ",
-  //description: "This is Blog Details Page for Frondesk Technologies",
-  // other metadata
-};
-
-const BlogSidebarPage = () => {
+const BlogSecondPage = () => {
   return (
-    <>
-      <section className="overflow-hidden pt-[180px] pb-[120px]">
+    <section className="overflow-hidden pt-[180px] pb-[120px]">
         <div className="container">
           <div className="-mx-4 flex flex-wrap">
             <div className="w-full px-4 lg:w-8/12">
               <div>
                 <h1 className="mb-8 text-3xl leading-tight font-bold text-black sm:text-4xl sm:leading-tight dark:text-white">
-                  Boost Bodyshop Profits with Automated AI Dent Detection
+                 Tyre health alerts that help bring customers back and grow your income
                 </h1>
                 <div className="border-body-color/10 mb-10 flex flex-wrap items-center justify-between border-b pb-4 dark:border-white/10">
                   <div className="flex flex-wrap items-center">
@@ -113,12 +105,12 @@ const BlogSidebarPage = () => {
                   <p className="text-body-color mb-10 text-base leading-relaxed font-medium sm:text-lg sm:leading-relaxed lg:text-base lg:leading-relaxed xl:text-lg xl:leading-relaxed">
                     {/* Increase dealership revenue with AI-powered dent detection technology. */}
 {/* Boost customer trust and sales for your car dealership using automated damage assessment */}
-                        Get fast dent and damage checks with instant car inspection reports to help customers make informed decisions
+                        Tyre automation changes how tyre services operate by automating key tasks such as tyre wear tracking and replacement scheduling.This technology delivers faster, more reliable tyre care by reducing manual errors and saving valuable time for both businesses and customers.
                   </p>
                   <div className="mb-10 w-full overflow-hidden rounded-sm">
                     <div className="relative aspect-97/60 w-full sm:aspect-97/44">
                       <Image
-                      src={withBasePath('/images/blog/dentd.png')} 
+                      src={withBasePath('/images/blog/tyredetail.png')} 
                     //  src={`${basePath}/images/blog/web.png`}
                       // src="/images/blog/web.jpg"
                         alt="image"
@@ -136,11 +128,9 @@ const BlogSidebarPage = () => {
                     Inspect Smarter with AI
                   </h3>
                   <p className="text-body-color mb-10 text-base leading-relaxed font-medium sm:text-lg sm:leading-relaxed lg:text-base lg:leading-relaxed xl:text-lg xl:leading-relaxed">
-                   Vehicle inspections—whether for damage detection checks—have traditionally relied on manual processes, requiring human inspectors to assess each vehicle’s condition. However, with advancements in technology, AI-powered vehicle inspection and damage detection have become possible. This innovation makes the process faster, more efficient, and cost-effective, while significantly reducing the risk of human error.
-                  </p>
+Automated tyre monitoring systems provide accurate, continuous data on tyre health. Detecting wear and potential issues early helps prevent unexpected breakdowns and improves vehicle safety. Service centers use this data to plan tyre maintenance more effectively.                  </p>
                     <p className="text-body-color mb-8 text-base leading-relaxed font-medium sm:text-lg sm:leading-relaxed lg:text-base lg:leading-relaxed xl:text-lg xl:leading-relaxed">
-                    Our AI-powered Body Shop Solutions help dealerships enhance auto damage detection, repair management, and workflow optimization. From accurately identifying dents and scratches to tracking repair progress, the platform ensures faster turnaround, improved accuracy, and enhanced customer satisfaction—all while boosting workshop efficiency, productivity, and revenue.
-                    {/* <strong className="text-primary dark:text-white">
+Our Frondesk Technologies Tyre automation tools send timely alerts and handle the scheduling of tyre replacements automatically. This reduces delayed tyre changes, ensures customers receive fast service, and helps service centers manage appointments efficiently.                    {/* <strong className="text-primary dark:text-white">
                       {" "}
                       malesuada{" "}
                     </strong>
@@ -164,19 +154,22 @@ const BlogSidebarPage = () => {
                   <ul className="text-body-color mb-10 list-inside list-disc">
                     
                     <li className="text-body-color mb-2 text-base font-medium sm:text-lg lg:text-base xl:text-lg">
-                      Scratches and scuffs.
+                      Tracks tyre wear in real time
                     </li>
                     <li className="text-body-color mb-2 text-base font-medium sm:text-lg lg:text-base xl:text-lg">
-                     Dents and dings.
+                     Sidewall cracks
                     </li>
                     <li className="text-body-color mb-2 text-base font-medium sm:text-lg lg:text-base xl:text-lg">
-                     Cracked or chipped windshields
+                  Sidewall blisters or bubbles
                     </li>
                     <li className="text-body-color mb-2 text-base font-medium sm:text-lg lg:text-base xl:text-lg">
-                      Paint damage or fading
+                      Tread wear and damage
                     </li>
                     <li className="text-body-color mb-2 text-base font-medium sm:text-lg lg:text-base xl:text-lg">
-                     Broken headlights or taillights
+                     Punctures ,  cuts and more
+                    </li>
+                     <li className="text-body-color mb-2 text-base font-medium sm:text-lg lg:text-base xl:text-lg">
+                   Advance Reporting
                     </li>
                   </ul>
                   <div className="bg-primary/10 relative z-10 mb-10 overflow-hidden rounded-md p-8 md:p-9 lg:p-8 xl:p-9">
@@ -384,7 +377,7 @@ const BlogSidebarPage = () => {
                 <ul className="p-8">
                   <li className="border-body-color/10 mb-6 border-b pb-6 dark:border-white/10">
                     <RelatedPost
-                      title="Automatically detect all damages, including those that are hidden."
+                      title="Automates tyre wear tracking for accurate, real-time condition monitoring"
                      
                      // image="images/blog/post-01.jpg"
                       image={withBasePath('/images/blog/post-02.jpg')}
@@ -394,18 +387,18 @@ const BlogSidebarPage = () => {
                   </li>
                   <li className="border-body-color/10 mb-6 border-b pb-6 dark:border-white/10">
                     <RelatedPost
-                      title="Swift, automated assessment and marking of damage severity."
+                      title="Reduces manual inspection errors and improves maintenance accuracy"
                        image={withBasePath('/images/blog/post-01.jpg')}
                       slug="#"
-                      date="15 nov, 2025"
+                      date="15 Feb, 2024"
                     />
                   </li>
                   <li>
                     <RelatedPost
-                      title="Generate full damage specifications and component-level repair cost estimates."
+                      title="Saves time by speeding up tyre service and appointment handling"
                      image={withBasePath('/images/blog/post-02.jpg')}
                       slug="#"
-                      date="05 oct, 2025"
+                      date="05 Jun, 2024"
                     />
                   </li>
                 
@@ -485,8 +478,6 @@ const BlogSidebarPage = () => {
           </div>
         </div>
       </section>
-    </>
   );
 };
-
-export default BlogSidebarPage;
+export default BlogSecondPage;

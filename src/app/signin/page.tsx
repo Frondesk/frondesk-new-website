@@ -239,9 +239,7 @@ const SigninPage = () => {
 <h2 className="">We collect information directly from you: </h2> <p className="text-body-color mb-3 text-base font-medium"> We collect information directly from you when you register/login. We also collect information if you post a comment on our portal, apps or ask us a question through phone or email.</p>
 </p>
        <h2 className="">We collect information from you passively:  </h2> <p className="text-body-color mb-3 text-base font-medium">We use analytical tools like Google Analytics, Google Webmaster, browser cookies and web beacons for collecting information about your usage of our website or apps. </p>
-        <h2 className="">We get information about you from third parties: </h2>  <p className="text-body-color mb-3 text-base font-medium">For example, if you use an integrated social media feature on our website or apps. The third-party social media site will give us certain information about you. This could include your name and email address.
-
-</p>
+        <h2 className="">We get information about you from third parties: </h2>  <p className="text-body-color mb-3 text-base font-medium">For example, if you use an integrated social media feature on our website or apps. The third-party social media site will give us certain information about you. This could include your name and email address.</p>
 <h2>Use of your personal information</h2><br></br>
 <h2>We use information to contact you: </h2>  <p className="text-body-color mb-3 text-base font-medium">We might use the information you provide to contact you for confirmation of a transaction on the FRONDESK website/Apps or for other promotional purposes.</p>
     <h2>We use information to respond to your requests or questions</h2>   <br></br>

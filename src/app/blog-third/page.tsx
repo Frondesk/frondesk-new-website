@@ -4,29 +4,21 @@ import TagButton from "@/components/Blog/TagButton";
 import NewsLatterBox from "@/components/Contact/NewsLatterBox";
 import Image from "next/image";
 
-
-import { Metadata } from "next";
 function withBasePath(src) {
+ //const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
  const basePath = process.env.NODE_ENV === "production" ? "/frondesk-new-website" : "";
   const normalizedSrc = src.startsWith('/') ? src.slice(1) : src;
   return `${basePath}/${normalizedSrc}`;
 }
-export const metadata: Metadata = {
-  title: "Blog Details Page ",
-  //description: "This is Blog Details Page for Frondesk Technologies",
-  // other metadata
-};
-
-const BlogSidebarPage = () => {
+const BlogThirdPage = () => {
   return (
-    <>
-      <section className="overflow-hidden pt-[180px] pb-[120px]">
+    <section className="overflow-hidden pt-[180px] pb-[120px]">
         <div className="container">
           <div className="-mx-4 flex flex-wrap">
             <div className="w-full px-4 lg:w-8/12">
               <div>
                 <h1 className="mb-8 text-3xl leading-tight font-bold text-black sm:text-4xl sm:leading-tight dark:text-white">
-                  Boost Bodyshop Profits with Automated AI Dent Detection
+                Insurance alerts that help bring customers back and grow your income
                 </h1>
                 <div className="border-body-color/10 mb-10 flex flex-wrap items-center justify-between border-b pb-4 dark:border-white/10">
                   <div className="flex flex-wrap items-center">
@@ -113,12 +105,12 @@ const BlogSidebarPage = () => {
                   <p className="text-body-color mb-10 text-base leading-relaxed font-medium sm:text-lg sm:leading-relaxed lg:text-base lg:leading-relaxed xl:text-lg xl:leading-relaxed">
                     {/* Increase dealership revenue with AI-powered dent detection technology. */}
 {/* Boost customer trust and sales for your car dealership using automated damage assessment */}
-                        Get fast dent and damage checks with instant car inspection reports to help customers make informed decisions
+                       Automated Insurance: Simplified Policy Management for Dealerships
                   </p>
                   <div className="mb-10 w-full overflow-hidden rounded-sm">
                     <div className="relative aspect-97/60 w-full sm:aspect-97/44">
                       <Image
-                      src={withBasePath('/images/blog/dentd.png')} 
+                      src={withBasePath('/images/blog/policyd.png')} 
                     //  src={`${basePath}/images/blog/web.png`}
                       // src="/images/blog/web.jpg"
                         alt="image"
@@ -133,14 +125,14 @@ const BlogSidebarPage = () => {
                   </div>
                 
                   <h3 className="font-xl mb-10 leading-tight font-bold text-black sm:text-2xl sm:leading-tight lg:text-xl lg:leading-tight xl:text-2xl xl:leading-tight dark:text-white">
-                    Inspect Smarter with AI
+                    Inspect Smarter 
                   </h3>
                   <p className="text-body-color mb-10 text-base leading-relaxed font-medium sm:text-lg sm:leading-relaxed lg:text-base lg:leading-relaxed xl:text-lg xl:leading-relaxed">
-                   Vehicle inspections—whether for damage detection checks—have traditionally relied on manual processes, requiring human inspectors to assess each vehicle’s condition. However, with advancements in technology, AI-powered vehicle inspection and damage detection have become possible. This innovation makes the process faster, more efficient, and cost-effective, while significantly reducing the risk of human error.
-                  </p>
+Automated insurance makes managing policies easy by handling renewals and claims without manual effort. Smart systems automatically process updates and send reminders, ensuring your policy information stays accurate and timely.               </p>
                     <p className="text-body-color mb-8 text-base leading-relaxed font-medium sm:text-lg sm:leading-relaxed lg:text-base lg:leading-relaxed xl:text-lg xl:leading-relaxed">
-                    Our AI-powered Body Shop Solutions help dealerships enhance auto damage detection, repair management, and workflow optimization. From accurately identifying dents and scratches to tracking repair progress, the platform ensures faster turnaround, improved accuracy, and enhanced customer satisfaction—all while boosting workshop efficiency, productivity, and revenue.
-                    {/* <strong className="text-primary dark:text-white">
+Our Frondesk Technologies reduces missed renewals and policy lapses, helping keep customers protected and satisfied. With fast claims processing and 24/7 self-service, your dealership delivers smoother service and greater convenience for every client.  
+
+                 {/* <strong className="text-primary dark:text-white">
                       {" "}
                       malesuada{" "}
                     </strong>
@@ -159,24 +151,27 @@ const BlogSidebarPage = () => {
                     sed.
                   </p> */}
                    <h3 className="font-xl mb-10 leading-tight font-bold text-black sm:text-2xl sm:leading-tight lg:text-xl lg:leading-tight xl:text-2xl xl:leading-tight dark:text-white">
-                    What AI Spots Instantly
+                   Advantages of Automation for Dealership Insurance
                   </h3>
                   <ul className="text-body-color mb-10 list-inside list-disc">
                     
                     <li className="text-body-color mb-2 text-base font-medium sm:text-lg lg:text-base xl:text-lg">
-                      Scratches and scuffs.
+                   Automates insurance tasks for easy workflow
                     </li>
                     <li className="text-body-color mb-2 text-base font-medium sm:text-lg lg:text-base xl:text-lg">
-                     Dents and dings.
+                     Centralizes all insurance details in one place
                     </li>
                     <li className="text-body-color mb-2 text-base font-medium sm:text-lg lg:text-base xl:text-lg">
-                     Cracked or chipped windshields
+                No paperwork and manual handling
                     </li>
                     <li className="text-body-color mb-2 text-base font-medium sm:text-lg lg:text-base xl:text-lg">
-                      Paint damage or fading
+                     Minimizes data loss and errors from manual entry
                     </li>
                     <li className="text-body-color mb-2 text-base font-medium sm:text-lg lg:text-base xl:text-lg">
-                     Broken headlights or taillights
+                    Improves operational efficiency and accuracy
+                    </li>
+                     <li className="text-body-color mb-2 text-base font-medium sm:text-lg lg:text-base xl:text-lg">
+                   Advance Reporting
                     </li>
                   </ul>
                   <div className="bg-primary/10 relative z-10 mb-10 overflow-hidden rounded-md p-8 md:p-9 lg:p-8 xl:p-9">
@@ -384,7 +379,7 @@ const BlogSidebarPage = () => {
                 <ul className="p-8">
                   <li className="border-body-color/10 mb-6 border-b pb-6 dark:border-white/10">
                     <RelatedPost
-                      title="Automatically detect all damages, including those that are hidden."
+                      title="Integrates insurance data seamlessly with CRM and sales systems for unified insights"
                      
                      // image="images/blog/post-01.jpg"
                       image={withBasePath('/images/blog/post-02.jpg')}
@@ -394,18 +389,18 @@ const BlogSidebarPage = () => {
                   </li>
                   <li className="border-body-color/10 mb-6 border-b pb-6 dark:border-white/10">
                     <RelatedPost
-                      title="Swift, automated assessment and marking of damage severity."
+                      title="Improves risk management using AI to detect fraud and predict claim patterns."
                        image={withBasePath('/images/blog/post-01.jpg')}
                       slug="#"
-                      date="15 nov, 2025"
+                      date="15 Feb, 2024"
                     />
                   </li>
                   <li>
                     <RelatedPost
-                      title="Generate full damage specifications and component-level repair cost estimates."
+                      title="Enables personalized offers and reminders based on customer data."
                      image={withBasePath('/images/blog/post-02.jpg')}
                       slug="#"
-                      date="05 oct, 2025"
+                      date="05 Jun, 2024"
                     />
                   </li>
                 
@@ -485,8 +480,6 @@ const BlogSidebarPage = () => {
           </div>
         </div>
       </section>
-    </>
   );
 };
-
-export default BlogSidebarPage;
+export default BlogThirdPage;

@@ -13,6 +13,7 @@ const blogData: Blog[] = [
   //  image: "images/blog/dent-blogs.png",
  // image: `${basePath}images/blog/dent111.png`,
     image: `${withBasePath('images/blog/fdent.png')}`,
+    href:withBasePath('/blog-sidebar'),
     
     author: {
       name: "Frondesk Technologies",
@@ -33,7 +34,7 @@ const blogData: Blog[] = [
    // image: "images/blog/tyre-blogs.png",
   //  image: `${basePath}images/blog/tyre111.png`,
     image: `${withBasePath('images/blog/ftyre.png')}`,
-
+href:withBasePath('/blog-second'),
     author: {
       name: "Frondesk Technologies",
      // image: `${basePath}images/blog/author-03.png`,
@@ -52,7 +53,7 @@ const blogData: Blog[] = [
    //image: `${basePath}images/blog/fmi2.png`,
       // image: "images/blog/insurance-blogs.png",
           image: `${withBasePath('images/blog/ffmi.png')}`,
-
+href:withBasePath('/blog-third'),
     author: {
       name: "Frondesk Technologies",
      // image: `${basePath}images/blog/author-03.png`,
