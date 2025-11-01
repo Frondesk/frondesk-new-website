@@ -6,7 +6,7 @@ import Image from "next/image";
 
 function withBasePath(src) {
  //const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
- const basePath = process.env.NODE_ENV === "production" ? "" : "";
+ const basePath = process.env.NODE_ENV === "production" ? "/frondesk-new-website" : "";
   const normalizedSrc = src.startsWith('/') ? src.slice(1) : src;
   return `${basePath}/${normalizedSrc}`;
 }
