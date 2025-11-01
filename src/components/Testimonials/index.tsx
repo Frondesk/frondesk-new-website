@@ -1,33 +1,44 @@
 import { Testimonial } from "@/types/testimonial";
 import SectionTitle from "../Common/SectionTitle";
 import SingleTestimonial from "./SingleTestimonial";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Navigation } from "swiper/modules";
 
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+
+function withBasePath(src) {
+ const basePath = process.env.NODE_ENV === "production" ? "/frondesk-new-website" : "";
+  const normalizedSrc = src.startsWith('/') ? src.slice(1) : src;
+  return `${basePath}/${normalizedSrc}`;
+}
 const testimonialData: Testimonial[] = [
   
   {
     id: 1,
     name: "Ratheesh",
-    designation: "GM- Customer Service - Ravindu Toyota",
+    designation: "GM - Ravindu Toyota",
     content:
-      "I’m fully convinced with the growth possibilities Frondesk offers. We’ve a big growth plan for our body shop business for 2023 and Frondesk tools are right on top of our plan.",
+      "We adopted Frondesk at a crucial juncture when our body shop business was showing flat growth.And then we witnessed a big jump in our business. I’m extremely pleased with the results. Frondesk has provided. Frondesk team supported us in every step of our journey with their impactful trainings on product and best practices. Our body shop business worries are a past now! Thanks to our counterpart, who recommended Frondesk to us.",
                             
                            
                           
-                            
-    image: "images/testimonials/auth-01.png",
+   image: `${withBasePath('images/testimonials/auth-01.png')}`,                      
+   // image: "images/testimonials/auth-01.png",
     star: 5,
   },
   {
     id: 2,
     name: "Ganesan",
     designation: "VP Services - ABT Maruti",
-    content:
-      "I’m fully convinced with the growth possibilities Frondesk offers. We’ve a big growth plan for our body shop business for 2023 and Frondesk tools are right on top of our plan. ",
+   content:"We had high confidence on Frondesk tools on day one itself after the product introduction session by the Frondesk team. As we anticipated, Frondesk started delivering great results from the first month itself. Frondesk is really a Godsent tool to us. Thanks to the Frondesk team!",
+   // content:"We were literally blown up seeing the unbelievable growth in our body shop business after deploying Frondesk tools since the beginning of 2022. A 300% growth was way beyond ourexpectations! The growth sustained month after month and after a year it still continues. Frondesk has systematically shown us the path to growth and we only had to follow the path! What I understood is the formula can be replicated by any dealer looking for growth by simply adopting Frondesk tools. You can’t go wrong with Frondesk!",
                             
                            
                            
                          
-    image: "images/testimonials/auth-02.png",
+     image: `${withBasePath('images/testimonials/auth-02.png')}`, 
     star: 5,
   },
   {
@@ -36,9 +47,19 @@ const testimonialData: Testimonial[] = [
     designation: "VP Servies - Vivo Toyota",
     content:
       "I’m fully convinced with the growth possibilities Frondesk offers. We’ve a big growth plan for our body shop business for 2023 and Frondesk tools are right on top of our plan.",
-    image: "images/testimonials/auth-03.png",
+    image: `${withBasePath('images/testimonials/auth-03.png')}`, 
     star: 5,
   },
+    {
+    id: 4,
+    name: "Jose Mathew",
+    designation: "VP Servies - Nandhi Toyota",
+    content:"We were literally blown up seeing the unbelievable growth in our body shop business after deploying Frondesk tools since the beginning of 2022. A 300% growth was way beyond ourexpectations! The growth sustained month after month and after a year it still continues. Frondesk has systematically shown us the path to growth and we only had to follow the path! What I understood is the formula can be replicated by any dealer looking for growth by simply adopting Frondesk tools. You can’t go wrong with Frondesk!",
+                         
+       image: `${withBasePath('images/testimonials/auth-03.png')}`, 
+    star: 5,
+  },
+    
 ];
 
 const Testimonials = () => {
@@ -51,7 +72,7 @@ const Testimonials = () => {
           center
         />
 
-        <div className="grid grid-cols-1 gap-x-8 gap-y-10 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-x-8 gap-y-10 md:grid-cols-2 lg:grid-cols-4 ">
           {testimonialData.map((testimonial) => (
             <SingleTestimonial key={testimonial.id} testimonial={testimonial} />
           ))}
