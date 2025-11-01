@@ -24,7 +24,7 @@ const testimonialData: Testimonial[] = [
                             
                            
                           
-   image: `${withBasePath('images/testimonials/auth-01.png')}`,                      
+   image: `${withBasePath('images/testimonials/logo-4.jpg')}`,                      
    // image: "images/testimonials/auth-01.png",
     star: 5,
   },
@@ -38,7 +38,7 @@ const testimonialData: Testimonial[] = [
                            
                            
                          
-     image: `${withBasePath('images/testimonials/auth-02.png')}`, 
+     image: `${withBasePath('images/testimonials/logo-1.jpg')}`, 
     star: 5,
   },
   {
@@ -47,7 +47,7 @@ const testimonialData: Testimonial[] = [
     designation: "VP Servies - Vivo Toyota",
     content:
       "I’m fully convinced with the growth possibilities Frondesk offers. We’ve a big growth plan for our body shop business for 2023 and Frondesk tools are right on top of our plan.",
-    image: `${withBasePath('images/testimonials/auth-03.png')}`, 
+    image: `${withBasePath('images/testimonials/logo-5.jpg')}`, 
     star: 5,
   },
     {
@@ -56,7 +56,7 @@ const testimonialData: Testimonial[] = [
     designation: "VP Servies - Nandhi Toyota",
     content:"We were literally blown up seeing the unbelievable growth in our body shop business after deploying Frondesk tools since the beginning of 2022. A 300% growth was way beyond ourexpectations! The growth sustained month after month and after a year it still continues. Frondesk has systematically shown us the path to growth and we only had to follow the path! What I understood is the formula can be replicated by any dealer looking for growth by simply adopting Frondesk tools. You can’t go wrong with Frondesk!",
                          
-       image: `${withBasePath('images/testimonials/auth-03.png')}`, 
+       image: `${withBasePath('images/testimonials/logo-3.jpg')}`, 
     star: 5,
   },
     
