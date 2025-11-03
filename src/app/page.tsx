@@ -12,10 +12,17 @@ import Video from "@/components/Video";
 import { Metadata } from "next";
 import BlogSecondPage from "./blog-second/page";
 
+function withBasePath(src) {
+ const basePath = process.env.NODE_ENV === "production" ? "/frondesk-new-website" : "";
+  const normalizedSrc = src.startsWith('/') ? src.slice(1) : src;
+  return `${basePath}/${normalizedSrc}`;
+}
 export const metadata: Metadata = {
    icons: {
-    icon: "images/logo/apple-touch-icon.png", 
-    apple: "images/logo/apple-touch-icon.png",
+    icon: `${withBasePath('images/blog/apple-touch-icon.png')}`,
+    apple: `${withBasePath('images/blog/apple-touch-icon.png')}`,
+   // icon: "images/logo/apple-touch-icon.png", 
+  //  apple: "images/logo/apple-touch-icon.png",
   },
   title: "Frondesk",
   description: "AI-Powered Dealership Management Platform",

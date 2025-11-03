@@ -19,12 +19,12 @@ const menuData: Menu[] = [
     path: "/blog",
     newTab: false,
   },
-  {
-    id: 3,
-    title: "Support",
-    path: "/contact",
-    newTab: false,
-  },
+  // {
+  //   id: 3,
+  //   title: "Support",
+  //   path: "/contact",
+  //   newTab: false,
+  // },
   
   {
     id: 4,
@@ -79,12 +79,12 @@ const menuData: Menu[] = [
         path: "/signup",
         newTab: false,
       },
-      {
-        id: 48,
-        title: "Error Page",
-        path: "/error",
-        newTab: false,
-      },
+      // {
+      //   id: 48,
+      //   title: "Error Page",
+      //   path: "/error",
+      //   newTab: false,
+      // },
     
     ],
   },

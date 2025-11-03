@@ -344,7 +344,7 @@ Our Frondesk Technologies Tyre automation tools send timely alerts and handle th
               </div>
             </div>
             <div className="w-full px-4 lg:w-4/12">
-              <div className="shadow-three dark:bg-gray-dark mt-12 mb-10 rounded-xs bg-white p-6 lg:mt-0 dark:shadow-none">
+              {/* <div className="shadow-three dark:bg-gray-dark mt-12 mb-10 rounded-xs bg-white p-6 lg:mt-0 dark:shadow-none">
                 <div className="flex items-center justify-between">
                   <input
                     type="text"
@@ -368,8 +368,8 @@ Our Frondesk Technologies Tyre automation tools send timely alerts and handle th
                       />
                     </svg>
                   </button>
-                </div>
-              </div>
+                </div> */}
+              {/* </div> */}
               <div className="shadow-three dark:bg-gray-dark mb-10 rounded-xs bg-white dark:shadow-none">
                 <h3 className="border-body-color/10 border-b px-8 py-4 text-lg font-semibold text-black dark:border-white/10 dark:text-white">
                  Claim Automation

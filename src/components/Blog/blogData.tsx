@@ -16,14 +16,14 @@ const blogData: Blog[] = [
     href:'/blog-sidebar',
     
     author: {
-      name: "Frondesk Technologies",
+      name: "Arun Raj",
     //  image: "images/blog/author-03.png",
     
   //  image: `${basePath}images/blog/author-03.png`,
   image: `${withBasePath('images/blog/author-03.png')}`,
-      designation: "DENT ",
+      designation: "Frondesk Technologies ",
     },
-    tags: ["Dent"],
+    tags: ["Read More"],
     publishDate: "2025",
   },
   {
@@ -36,13 +36,13 @@ const blogData: Blog[] = [
     image: `${withBasePath('images/blog/ftyre.png')}`,
 href:'/blog-second',
     author: {
-      name: "Frondesk Technologies",
+      name: "Akshata Pujari",
      // image: `${basePath}images/blog/author-03.png`,
-     image: `${withBasePath('images/blog/author-03.png')}`,
+     image: `${withBasePath('images/blog/w.png')}`,
       //image: "images/blog/tyre-blogs.png",
-      designation: "Tyre",
+      designation: "Frondesk Technologies",
     },
-    tags: ["Tyre"],
+    tags: ["Read More"],
     publishDate: "2025",
   },
   {
@@ -55,13 +55,13 @@ href:'/blog-second',
           image: `${withBasePath('images/blog/ffmi.png')}`,
 href:'/blog-third',
     author: {
-      name: "Frondesk Technologies",
+      name: "Rajesh Krishnan",
      // image: `${basePath}images/blog/author-03.png`,
-      image: `${withBasePath('images/blog/author-03.png')}`,
+      image: `${withBasePath('images/blog/m.png')}`,
      // image: "images/blog/author-03.png",
-      designation: "Insurance",
+      designation: "Frondesk Technologies",
     },
-    tags: ["Policy"],
+    tags: ["Read More"],
     publishDate: "2025",
   },
 ];
