@@ -475,7 +475,7 @@ Our Frondesk Technologies reduces missed renewals and policy lapses, helping kee
                 </div>
               </div> */}
 
-              <NewsLatterBox />
+              {/* <NewsLatterBox /> */}
             </div>
           </div>
         </div>

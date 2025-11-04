@@ -50,15 +50,15 @@ const testimonialData: Testimonial[] = [
     image: `${withBasePath('images/testimonials/logo-5.jpg')}`, 
     star: 5,
   },
-    {
-    id: 4,
-    name: "Jose Mathew",
-    designation: "VP Servies - Nandhi Toyota",
-    content:"We were literally blown up seeing the unbelievable growth in our body shop business after deploying Frondesk tools since the beginning of 2022. A 300% growth was way beyond ourexpectations! The growth sustained month after month and after a year it still continues. Frondesk has systematically shown us the path to growth and we only had to follow the path! What I understood is the formula can be replicated by any dealer looking for growth by simply adopting Frondesk tools. You can’t go wrong with Frondesk!",
+  //   {
+  //   id: 4,
+  //   name: "Jose Mathew",
+  //   designation: "VP Servies - Nandhi Toyota",
+  //   content:"We were literally blown up seeing the unbelievable growth in our body shop business after deploying Frondesk tools since the beginning of 2022. A 300% growth was way beyond ourexpectations! The growth sustained month after month and after a year it still continues. Frondesk has systematically shown us the path to growth and we only had to follow the path! What I understood is the formula can be replicated by any dealer looking for growth by simply adopting Frondesk tools. You can’t go wrong with Frondesk!",
                          
-       image: `${withBasePath('images/testimonials/logo-3.jpg')}`, 
-    star: 5,
-  },
+  //      image: `${withBasePath('images/testimonials/logo-3.jpg')}`, 
+  //   star: 5,
+  // },
     
 ];
 
@@ -72,7 +72,7 @@ const Testimonials = () => {
           center
         />
 
-        <div className="grid grid-cols-1 gap-x-8 gap-y-10 md:grid-cols-2 lg:grid-cols-4 ">
+        <div className="grid grid-cols-1 gap-x-8 gap-y-10 md:grid-cols-2 lg:grid-cols-3 ">
           {testimonialData.map((testimonial) => (
             <SingleTestimonial key={testimonial.id} testimonial={testimonial} />
           ))}

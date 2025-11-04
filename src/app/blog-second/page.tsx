@@ -473,7 +473,7 @@ Our Frondesk Technologies Tyre automation tools send timely alerts and handle th
                 </div>
               </div> */}
 
-              <NewsLatterBox />
+              {/* <NewsLatterBox /> */}
             </div>
           </div>
         </div>
