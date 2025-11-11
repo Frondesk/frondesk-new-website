@@ -5,9 +5,64 @@ import Breadcrumb from "@/components/Common/Breadcrumb";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Blog Page",
-  //description: "This is Blog Page for Startup Nextjs Template",
-  // other metadata
+  title: "Frondesk Blog | Stories that Shape the Future of Car Dealerships | Frsk Perspectives",
+  description:
+    "Explore the Frondesk Blog — Stories that Shape the Future of Car Dealerships and serve as your source for AI dealership insights, automotive management guides, sales growth strategies. Discover expert tips, industry updates, and innovations that help car dealers boost performance and revenue.",
+  keywords: [
+    "Frondesk blog",
+    "AI dealership insights",
+    "automotive technology blog",
+    "car dealer sales tips",
+    "dealership growth strategies",
+    "automotive management guides",
+    "AI in car sales",
+    "dealership automation trends",
+    "vehicle inventory management blog",
+    "lead conversion tips for car dealers",
+    "automotive CRM articles",
+    "AI tools for dealerships",
+    "dealership performance analytics",
+    "automotive business insights",
+    "car dealership marketing ideas",
+    "revenue growth for dealerships"
+  ],
+  authors: [{ name: "Frondesk Technologies" }],
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+  openGraph: {
+    title: "Frondesk Blog | AI Dealership Insights and Automotive Growth Strategies",
+    description:
+      "Stay ahead in the automotive world with Frondesk’s blog. Read AI-powered dealership insights, tech innovations, and revenue-boosting strategies for car dealers.",
+    url: "https://yourdomain.com/blog",
+    siteName: "Frsk",
+    images: [
+      {
+        url: "https://yourdomain.com/images/blog-og.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Frondesk Blog – AI Dealership Insights",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Frondesk Blog | AI Dealership Insights, Tech Trends & Sales Growth",
+    description:
+      "Explore the Frondesk Blog — your source for AI dealership insights, automotive management guides, and sales growth strategies. Discover expert tips, industry updates, and innovations that help car dealers boost performance and revenue.",
+    images: ["https://yourdomain.com/images/blog-og.jpg"],
+    creator: "@frondesktech",
+  },
 };
 
 const Blog = () => {
@@ -15,7 +70,7 @@ const Blog = () => {
     <>
       <Breadcrumb
         pageName="Blog Grid"
-        description="Discover articles, guides, and updates organized in a simple grid view for quick reading."
+        description="Explore the Frondesk Blog — your source for AI dealership insights, automotive management guides, and sales growth strategies. Discover expert tips, industry updates, and innovations that help car dealers boost performance and revenue."
       />
 
       <section className="pt-[120px] pb-[120px]">

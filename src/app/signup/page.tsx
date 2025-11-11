@@ -3,9 +3,57 @@ import Link from "next/link";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Sign Up Page",
-  description: " Sign Up with Frondesk Technology",
-  // other metadata
+ title: "Create Your Account | Sign Up with Frondesk Technologies",
+  description:
+    "Join Frondesk Technologies and experience the power of AI-driven dealership management. Sign up to access tools for sales automation, customer tracking, and performance insights that grow your automotive business.",
+  keywords: [
+    "sign up Frondesk",
+    "create Frondesk account",
+    "register dealership software",
+    "AI dealership platform signup",
+    "Frondesk Technologies registration",
+    "car dealer CRM sign up",
+    "automotive software account",
+    "Frondesk login and registration",
+    "sales automation platform signup",
+  ],
+  authors: [{ name: "Frondesk Technologies" }],
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-snippet": -1,
+      "max-image-preview": "large",
+      "max-video-preview": -1,
+    },
+  },
+  openGraph: {
+    title: "Sign Up | Start with Frondesk Technologies",
+    description:
+      "Register for Frondesk Technologies to unlock AI-powered dealership tools. Streamline operations, automate sales, and grow your automotive business effortlessly.",
+    url: "https://yourdomain.com/signup",
+    siteName: "Frondesk Technologies",
+    images: [
+      {
+        url: "https://yourdomain.com/images/signup-og.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Sign Up with Frondesk Technologies",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Sign Up | Join Frondesk Technologies",
+    description:
+      "Create your Frondesk account and experience smarter dealership management with AI-powered tools for growth and automation.",
+    images: ["https://yourdomain.com/images/signup-og.jpg"],
+    creator: "@frondesktech",
+  },
 };
 
 const SignupPage = () => {

@@ -10,8 +10,57 @@ function withBasePath(src) {
 }
 export const metadata: Metadata = {
   title: "Blog Details Page ",
-  //description: "This is Blog Details Page for Startup Nextjs Template",
+  description: "Stories that Shape the Future of Car Dealerships | Frondesk Perspectives",
   // other metadata
+  keywords: [
+    "Frsk blog article",
+    "AI dealership management",
+    "automotive technology insights",
+    "car dealer sales strategies",
+    "dealership automation",
+    "automotive CRM tips",
+    "AI in car sales",
+    "dealership revenue growth",
+    "automotive industry innovations",
+    "car dealer digital transformation"
+  ],
+  authors: [{ name: "Frondesk Technologies" }],
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-snippet": -1,
+      "max-image-preview": "large",
+      "max-video-preview": -1,
+    },
+  },
+  openGraph: {
+    title: "Frondesk Blog | AI Dealership Insights & Automotive Growth Strategies",
+    description:
+      "In-depth blogs and expert analysis on how AI is transforming car dealership management, sales, and operations.",
+    url: "https://yourdomain.com/blog-details",
+    siteName: "Frondesk",
+    images: [
+      {
+        url: "https://yourdomain.com/images/blog-detail-og.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Frondesk Blog – AI Dealership Article",
+      },
+    ],
+    locale: "en_US",
+    type: "article",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Frondesk Blog | AI Dealership Insights & Automotive Tech Trends",
+    description:
+      "Discover detailed insights and expert articles on AI dealership management and sales growth strategies from Frsk.",
+    images: ["https://yourdomain.com/images/blog-detail-og.jpg"],
+    creator: "@frondesktech",
+  },
 };
 
 const BlogDetailsPage = () => {

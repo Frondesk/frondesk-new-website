@@ -12,9 +12,59 @@ function withBasePath(src) {
   return `${basePath}/${normalizedSrc}`;
 }
 export const metadata: Metadata = {
-  title: "Blog Details Page ",
-  //description: "This is Blog Details Page for Frondesk Technologies",
-  // other metadata
+   title: "Frondesk Blog Insights | Expert Articles on Automotive, AI & Dealership Growth",
+  description:
+    "Explore detailed articles from Frondesk Technologies covering AI-driven dealership management, automotive innovation, and business growth strategies. Gain expert insights to help your dealership thrive in the digital era.",
+  keywords: [
+    "Frondesk blog",
+    "automotive technology insights",
+    "AI dealership software",
+    "car dealer CRM",
+    "dealership management platform",
+    "automotive business growth",
+    "sales automation",
+    "AI in automotive industry",
+    "dealership performance insights",
+    "automotive trends and updates",
+    "Frondesk Technologies articles"
+  ],
+  authors: [{ name: "Frondesk Technologies" }],
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-snippet": -1,
+      "max-image-preview": "large",
+      "max-video-preview": -1,
+    },
+  },
+  openGraph: {
+    title: "Frondesk Blog Insights | AI & Automotive Innovation Articles",
+    description:
+      "Dive into expert insights from Frondesk Technologies on AI, automotive management, and dealership innovation. Stay informed with the latest strategies for growth.",
+    url: "https://yourdomain.com/blog-details",
+    siteName: "Frondesk Technologies",
+    images: [
+      {
+        url: "https://yourdomain.com/images/blog-detail-og.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Frondesk Blog Insights",
+      },
+    ],
+    locale: "en_US",
+    type: "article",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Frondesk Blog Insights | Automotive & AI Growth Strategies",
+    description:
+      "Read Frondesk’s expert articles on AI dealership management, automation, and business growth in the automotive world.",
+    images: ["https://yourdomain.com/images/blog-detail-og.jpg"],
+    creator: "@frondesktech",
+  },
 };
 
 const BlogSidebarPage = () => {
