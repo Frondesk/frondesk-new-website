@@ -11,7 +11,7 @@ import Testimonials from "@/components/Testimonials";
 import Video from "@/components/Video";
 import { Metadata } from "next";
 import BlogSecondPage from "./blog-second/page";
-
+import LatestBlogs from "@/components/Blog/LatestBlogs";
 function withBasePath(src) {
  const basePath = process.env.NODE_ENV === "production" ? "/frondesk-new-website" : "";
   const normalizedSrc = src.startsWith('/') ? src.slice(1) : src;
@@ -96,7 +96,8 @@ export default function Home() {
       <Brands />
       <Testimonials />
       <Pricing />
-      <Blog />
+      {/* <Blog /> */}
+        <LatestBlogs /> 
       <Contact />
     </>
   );
