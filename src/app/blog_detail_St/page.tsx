@@ -1,5 +1,5 @@
 "use client";
-
+import { Suspense } from "react";
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -136,6 +136,7 @@ export default function BlogDetailSt() {
 
   return (
     <>
+    <Suspense>
     <section className="overflow-hidden pt-[180px] pb-[120px]">
       <div className="container">
         <div className="-mx-4 flex flex-wrap">
@@ -196,6 +197,7 @@ export default function BlogDetailSt() {
         </div>
       </div>
     </section>
+    </Suspense>
     </>
   );
 }
