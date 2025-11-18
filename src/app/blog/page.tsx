@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Breadcrumb from "@/components/Common/Breadcrumb";
@@ -63,6 +64,7 @@ export default async function Blog({ searchParams }: PageProps) {
 
   return (
     <>
+    <Suspense fallback={<div>Loading...</div>}>
       <Breadcrumb
         pageName="Blog Grid"
         description="Explore the Frondesk Blog — your source for AI dealership insights, automotive management guides, and sales growth strategies."
@@ -179,7 +181,7 @@ export default async function Blog({ searchParams }: PageProps) {
             </div>
           )}
         </div>
-      </section>
+      </section></Suspense>
     </>
   );
 }
