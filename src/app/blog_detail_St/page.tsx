@@ -69,7 +69,7 @@ function renderStrapiRichText(blocks: any[]) {
 }
 
 // --------------------------------------------------
-// ⭐ MAIN PAGE COMPONENT
+// MAIN PAGE COMPONENT
 // --------------------------------------------------
 export default function BlogDetailSt() {
   const searchParams = useSearchParams();
@@ -92,13 +92,13 @@ export default function BlogDetailSt() {
         try {
           json = JSON.parse(text);
         } catch {
-          console.error("❌ Strapi returned HTML instead of JSON:", text);
+          console.error(" Strapi returned HTML instead of JSON:", text);
           return;
         }
 
         setBlog(json?.data?.[0]);
       } catch (err) {
-        console.error("❌ Fetch Error:", err);
+        console.error("Fetch Error:", err);
       } finally {
         setLoading(false);
       }
@@ -135,6 +135,7 @@ export default function BlogDetailSt() {
     : "/placeholder.jpg";
 
   return (
+    <>
     <section className="overflow-hidden pt-[180px] pb-[120px]">
       <div className="container">
         <div className="-mx-4 flex flex-wrap">
@@ -195,5 +196,6 @@ export default function BlogDetailSt() {
         </div>
       </div>
     </section>
+    </>
   );
 }
