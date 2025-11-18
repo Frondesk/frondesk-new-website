@@ -136,7 +136,7 @@ export default function BlogDetailSt() {
 
   return (
     <>
-    <Suspense>
+    <Suspense fallback={<div>Loading...</div>}>
     <section className="overflow-hidden pt-[180px] pb-[120px]">
       <div className="container">
         <div className="-mx-4 flex flex-wrap">
