@@ -1,3 +1,5 @@
+
+export const dynamic = "force-dynamic";
 import Image from "next/image";
 import { fetchAPI, getStrapiMedia } from "../../../lib/api";
 import SharePost from "@/components/Blog/SharePost";
