@@ -5,47 +5,40 @@ import Breadcrumb from "@/components/Common/Breadcrumb";
 import SearchBar from "./SearchBar";
 
 export const metadata = {
-  title:
-    "Frondesk Blog | Stories that Shape the Future of Car Dealerships | Frsk Perspectives",
+  title: "Frondesk Blog | Stories that Shape the Future of Car Dealerships | Frsk Perspectives",
   description:
     "Explore the Frondesk Blog — your source for AI dealership insights, automotive management guides, sales growth strategies.",
 };
 
+// ⭐ FIX: Correct type for Next.js 15
 interface PageProps {
-  searchParams?: { [key: string]: string | string[] | undefined };
+  searchParams: Promise<{ search?: string; page?: string }>;
 }
 
-// Helper: resolve image URLs
 function resolveImageUrl(featureImage: any) {
   if (!featureImage) return "/images/blog/default.png";
 
-  if (Array.isArray(featureImage) && featureImage.length > 0) {
-    const img = featureImage[0];
-    const url = img?.url || img?.attributes?.url || img?.data?.attributes?.url;
-    if (!url) return "/images/blog/default.png";
-    if (url.startsWith("http")) return url;
-    return `${process.env.NEXT_PUBLIC_STRAPI_URL}${url}`;
-  }
+  const url =
+    featureImage?.[0]?.url ||
+    featureImage?.url ||
+    featureImage?.data?.attributes?.url ||
+    featureImage?.attributes?.url;
 
-  if (featureImage?.data?.attributes?.url) {
-    const url = featureImage.data.attributes.url;
-    if (url.startsWith("http")) return url;
-    return `${process.env.NEXT_PUBLIC_STRAPI_URL}${url}`;
-  }
+  if (!url) return "/images/blog/default.png";
 
-  if (featureImage?.url) {
-    const url = featureImage.url;
-    if (url.startsWith("http")) return url;
-    return `${process.env.NEXT_PUBLIC_STRAPI_URL}${url}`;
-  }
-
-  return "/images/blog/default.png";
+  return url.startsWith("http")
+    ? url
+    : `${process.env.NEXT_PUBLIC_STRAPI_URL}${url}`;
 }
 
 export default async function Blog({ searchParams }: PageProps) {
-  // ✅ Safely get search & page as strings
-  const search = typeof searchParams?.search === "string" ? searchParams.search : "";
-  const page = typeof searchParams?.page === "string" ? parseInt(searchParams.page, 10) : 1;
+  // ⭐ REQUIRED: Await searchParams
+  const params = await searchParams;
+
+  const search = typeof params.search === "string" ? params.search : "";
+  const page =
+    typeof params.page === "string" ? parseInt(params.page, 10) : 1;
+
   const pageSize = 6;
 
   const apiUrl = search
@@ -61,13 +54,11 @@ export default async function Blog({ searchParams }: PageProps) {
   const blogs = data?.data || [];
   const meta = data?.meta?.pagination || { pageCount: 1 };
 
-
   return (
-    <>
     <Suspense fallback={<div>Loading...</div>}>
       <Breadcrumb
         pageName="Blog Grid"
-        description="Explore the Frondesk Blog — your source for AI dealership insights, automotive management guides, and sales growth strategies."
+        description="Explore the Frondesk Blog — your source for AI dealership insights."
       />
 
       <section className="pt-[120px] pb-[120px]">
@@ -83,56 +74,60 @@ export default async function Blog({ searchParams }: PageProps) {
 
             {blogs.map((blog: any) => {
               const raw = blog?.attributes ?? blog;
-              const title = raw?.Title || raw?.title || "Untitled Blog";
+              const title = raw?.Title || "Untitled Blog";
               const summary =
                 raw?.Summary ||
-                raw?.summary ||
                 raw?.Description?.[0]?.children?.[0]?.text ||
                 "No summary available.";
-              const slug = raw?.slug || raw?.Slug || blog?.slug || blog?.id;
-              const publishedAt =
-                raw?.publishedAt || raw?.published_at || raw?.Date || blog?.publishedAt;
+              const slug = raw?.slug || blog?.id;
+              const publishedAt = raw.publishedAt;
 
-              const featureImageCandidate =
-                raw?.FeatureImage ?? raw?.featureImage ?? raw?.image ?? raw?.FeatureImage?.data ?? raw?.FeatureImage;
-              const coverUrl = resolveImageUrl(featureImageCandidate);
+              const coverUrl = resolveImageUrl(
+                raw?.FeatureImage ?? raw?.featureImage
+              );
 
               return (
                 <div
-                  key={blog.id ?? slug}
+                  key={slug}
                   className="w-full px-4 md:w-2/3 lg:w-1/2 xl:w-1/3"
                 >
-                  <div className="group shadow-one hover:shadow-two dark:bg-dark dark:hover:shadow-gray-dark relative overflow-hidden rounded-xs bg-white duration-300">
+                  <div className="group shadow-one hover:shadow-two dark:bg-dark relative overflow-hidden rounded-xs bg-white duration-300">
                     <Link
                       href={`/blog_detail_St?slug=${slug}`}
                       className="relative block aspect-[20/14]"
                     >
-                      <Image src={coverUrl} alt={title} fill className="object-cover" />
+                      <Image
+                        src={coverUrl}
+                        alt={title}
+                        fill
+                        className="object-cover"
+                      />
                     </Link>
 
                     <div className="p-6 sm:p-8">
                       <h3>
                         <Link
                           href={`/blog_detail_St?slug=${slug}`}
-                          className="hover:text-primary dark:hover:text-primary mb-4 block text-xl font-bold text-black sm:text-2xl dark:text-white"
+                          className="hover:text-primary mb-4 block text-xl font-bold text-black sm:text-2xl"
                         >
                           {title}
                         </Link>
                       </h3>
 
-                      <p className="text-body-color mb-6 text-base font-medium">{summary}</p>
+                      <p className="text-body-color mb-6 text-base font-medium">
+                        {summary}
+                      </p>
 
                       <div className="flex items-center justify-between">
-                        <div>
-                          <h4 className="text-sm font-medium text-dark dark:text-white">
-                            By {raw?.author || raw?.Author || "Unknown Author"}
-                          </h4>
-                        </div>
-                        <div className="text-right">
-                          <p className="text-xs text-body-color">
-                            {publishedAt ? new Date(publishedAt).toLocaleDateString() : "N/A"}
-                          </p>
-                        </div>
+                        <h4 className="text-sm font-medium text-dark">
+                          By {raw?.author || "Unknown"}
+                        </h4>
+
+                        <p className="text-xs text-body-color">
+                          {publishedAt
+                            ? new Date(publishedAt).toLocaleDateString()
+                            : "N/A"}
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -143,21 +138,26 @@ export default async function Blog({ searchParams }: PageProps) {
 
           {/* Pagination */}
           {meta.pageCount > 1 && (
-            <div className="-mx-4 flex flex-wrap" data-wow-delay=".15s">
+            <div className="-mx-4 flex flex-wrap">
               <div className="w-full px-4">
                 <ul className="flex items-center justify-center pt-8">
                   <li className="mx-1">
                     <Link
-                      href={`/blog?search=${encodeURIComponent(search)}&page=${Math.max(page - 1, 1)}`}
+                      href={`/blog?search=${encodeURIComponent(
+                        search
+                      )}&page=${Math.max(page - 1, 1)}`}
                       className="bg-body-color/15 text-body-color hover:bg-primary flex h-9 min-w-[36px] items-center justify-center rounded-md px-4 text-sm transition hover:text-white"
                     >
                       Prev
                     </Link>
                   </li>
+
                   {Array.from({ length: meta.pageCount }, (_, i) => (
                     <li key={i} className="mx-1">
                       <Link
-                        href={`/blog?search=${encodeURIComponent(search)}&page=${i + 1}`}
+                        href={`/blog?search=${encodeURIComponent(
+                          search
+                        )}&page=${i + 1}`}
                         className={`flex h-9 min-w-[36px] items-center justify-center rounded-md px-4 text-sm transition ${
                           page === i + 1
                             ? "bg-primary text-white"
@@ -168,9 +168,12 @@ export default async function Blog({ searchParams }: PageProps) {
                       </Link>
                     </li>
                   ))}
+
                   <li className="mx-1">
                     <Link
-                      href={`/blog?search=${encodeURIComponent(search)}&page=${Math.min(page + 1, meta.pageCount)}`}
+                      href={`/blog?search=${encodeURIComponent(
+                        search
+                      )}&page=${Math.min(page + 1, meta.pageCount)}`}
                       className="bg-body-color/15 text-body-color hover:bg-primary flex h-9 min-w-[36px] items-center justify-center rounded-md px-4 text-sm transition hover:text-white"
                     >
                       Next
@@ -181,10 +184,208 @@ export default async function Blog({ searchParams }: PageProps) {
             </div>
           )}
         </div>
-      </section></Suspense>
-    </>
+      </section>
+    </Suspense>
   );
 }
+
+
+
+
+
+
+
+
+
+
+
+// import { Suspense } from "react";
+// import Image from "next/image";
+// import Link from "next/link";
+// import Breadcrumb from "@/components/Common/Breadcrumb";
+// import SearchBar from "./SearchBar";
+
+// export const metadata = {
+//   title:
+//     "Frondesk Blog | Stories that Shape the Future of Car Dealerships | Frsk Perspectives",
+//   description:
+//     "Explore the Frondesk Blog — your source for AI dealership insights, automotive management guides, sales growth strategies.",
+// };
+
+// interface PageProps {
+//   searchParams?: { [key: string]: string | string[] | undefined };
+// }
+
+// // Helper: resolve image URLs
+// function resolveImageUrl(featureImage: any) {
+//   if (!featureImage) return "/images/blog/default.png";
+
+//   if (Array.isArray(featureImage) && featureImage.length > 0) {
+//     const img = featureImage[0];
+//     const url = img?.url || img?.attributes?.url || img?.data?.attributes?.url;
+//     if (!url) return "/images/blog/default.png";
+//     if (url.startsWith("http")) return url;
+//     return `${process.env.NEXT_PUBLIC_STRAPI_URL}${url}`;
+//   }
+
+//   if (featureImage?.data?.attributes?.url) {
+//     const url = featureImage.data.attributes.url;
+//     if (url.startsWith("http")) return url;
+//     return `${process.env.NEXT_PUBLIC_STRAPI_URL}${url}`;
+//   }
+
+//   if (featureImage?.url) {
+//     const url = featureImage.url;
+//     if (url.startsWith("http")) return url;
+//     return `${process.env.NEXT_PUBLIC_STRAPI_URL}${url}`;
+//   }
+
+//   return "/images/blog/default.png";
+// }
+
+// export default async function Blog({ searchParams }: PageProps) {
+//   // ✅ Safely get search & page as strings
+//   const search = typeof searchParams?.search === "string" ? searchParams.search : "";
+//   const page = typeof searchParams?.page === "string" ? parseInt(searchParams.page, 10) : 1;
+//   const pageSize = 6;
+
+//   const apiUrl = search
+//     ? `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/blogs?populate=*&filters[Title][$containsi]=${encodeURIComponent(
+//         search
+//       )}&sort=publishedAt:desc&pagination[page]=${page}&pagination[pageSize]=${pageSize}`
+//     : `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/blogs?populate=*&sort=publishedAt:desc&pagination[page]=${page}&pagination[pageSize]=${pageSize}`;
+
+//   const res = await fetch(apiUrl, { cache: "no-store" });
+//   if (!res.ok) throw new Error("Failed to fetch blogs from Strapi");
+
+//   const data = await res.json();
+//   const blogs = data?.data || [];
+//   const meta = data?.meta?.pagination || { pageCount: 1 };
+
+
+//   return (
+//     <>
+//     <Suspense fallback={<div>Loading...</div>}>
+//       <Breadcrumb
+//         pageName="Blog Grid"
+//         description="Explore the Frondesk Blog — your source for AI dealership insights, automotive management guides, and sales growth strategies."
+//       />
+
+//       <section className="pt-[120px] pb-[120px]">
+//         <SearchBar search={search} />
+
+//         <div className="container">
+//           <div className="-mx-4 flex flex-wrap justify-center">
+//             {blogs.length === 0 && (
+//               <p className="text-center w-full text-xl text-red-500 py-20">
+//                 No blogs found for “{search}”
+//               </p>
+//             )}
+
+//             {blogs.map((blog: any) => {
+//               const raw = blog?.attributes ?? blog;
+//               const title = raw?.Title || raw?.title || "Untitled Blog";
+//               const summary =
+//                 raw?.Summary ||
+//                 raw?.summary ||
+//                 raw?.Description?.[0]?.children?.[0]?.text ||
+//                 "No summary available.";
+//               const slug = raw?.slug || raw?.Slug || blog?.slug || blog?.id;
+//               const publishedAt =
+//                 raw?.publishedAt || raw?.published_at || raw?.Date || blog?.publishedAt;
+
+//               const featureImageCandidate =
+//                 raw?.FeatureImage ?? raw?.featureImage ?? raw?.image ?? raw?.FeatureImage?.data ?? raw?.FeatureImage;
+//               const coverUrl = resolveImageUrl(featureImageCandidate);
+
+//               return (
+//                 <div
+//                   key={blog.id ?? slug}
+//                   className="w-full px-4 md:w-2/3 lg:w-1/2 xl:w-1/3"
+//                 >
+//                   <div className="group shadow-one hover:shadow-two dark:bg-dark dark:hover:shadow-gray-dark relative overflow-hidden rounded-xs bg-white duration-300">
+//                     <Link
+//                       href={`/blog_detail_St?slug=${slug}`}
+//                       className="relative block aspect-[20/14]"
+//                     >
+//                       <Image src={coverUrl} alt={title} fill className="object-cover" />
+//                     </Link>
+
+//                     <div className="p-6 sm:p-8">
+//                       <h3>
+//                         <Link
+//                           href={`/blog_detail_St?slug=${slug}`}
+//                           className="hover:text-primary dark:hover:text-primary mb-4 block text-xl font-bold text-black sm:text-2xl dark:text-white"
+//                         >
+//                           {title}
+//                         </Link>
+//                       </h3>
+
+//                       <p className="text-body-color mb-6 text-base font-medium">{summary}</p>
+
+//                       <div className="flex items-center justify-between">
+//                         <div>
+//                           <h4 className="text-sm font-medium text-dark dark:text-white">
+//                             By {raw?.author || raw?.Author || "Unknown Author"}
+//                           </h4>
+//                         </div>
+//                         <div className="text-right">
+//                           <p className="text-xs text-body-color">
+//                             {publishedAt ? new Date(publishedAt).toLocaleDateString() : "N/A"}
+//                           </p>
+//                         </div>
+//                       </div>
+//                     </div>
+//                   </div>
+//                 </div>
+//               );
+//             })}
+//           </div>
+
+//           {/* Pagination */}
+//           {meta.pageCount > 1 && (
+//             <div className="-mx-4 flex flex-wrap" data-wow-delay=".15s">
+//               <div className="w-full px-4">
+//                 <ul className="flex items-center justify-center pt-8">
+//                   <li className="mx-1">
+//                     <Link
+//                       href={`/blog?search=${encodeURIComponent(search)}&page=${Math.max(page - 1, 1)}`}
+//                       className="bg-body-color/15 text-body-color hover:bg-primary flex h-9 min-w-[36px] items-center justify-center rounded-md px-4 text-sm transition hover:text-white"
+//                     >
+//                       Prev
+//                     </Link>
+//                   </li>
+//                   {Array.from({ length: meta.pageCount }, (_, i) => (
+//                     <li key={i} className="mx-1">
+//                       <Link
+//                         href={`/blog?search=${encodeURIComponent(search)}&page=${i + 1}`}
+//                         className={`flex h-9 min-w-[36px] items-center justify-center rounded-md px-4 text-sm transition ${
+//                           page === i + 1
+//                             ? "bg-primary text-white"
+//                             : "bg-body-color/15 text-body-color hover:bg-primary hover:text-white"
+//                         }`}
+//                       >
+//                         {i + 1}
+//                       </Link>
+//                     </li>
+//                   ))}
+//                   <li className="mx-1">
+//                     <Link
+//                       href={`/blog?search=${encodeURIComponent(search)}&page=${Math.min(page + 1, meta.pageCount)}`}
+//                       className="bg-body-color/15 text-body-color hover:bg-primary flex h-9 min-w-[36px] items-center justify-center rounded-md px-4 text-sm transition hover:text-white"
+//                     >
+//                       Next
+//                     </Link>
+//                   </li>
+//                 </ul>
+//               </div>
+//             </div>
+//           )}
+//         </div>
+//       </section></Suspense>
+//     </>
+//   );
+// }
 
 
 

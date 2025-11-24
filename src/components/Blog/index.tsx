@@ -1,26 +1,40 @@
-
-export const dynamic = "force-dynamic";
 import Image from "next/image";
 import { fetchAPI, getStrapiMedia } from "../../../lib/api";
 import SharePost from "@/components/Blog/SharePost";
 import TagButton from "@/components/Blog/TagButton";
 import NewsLatterBox from "@/components/Contact/NewsLatterBox";
 
-export default async function BlogDetailPage({ searchParams }: { searchParams: { slug?: string } }) {
-  const slug = searchParams?.slug;
+// export default async function BlogDetailPage({ searchParams }: { searchParams: { slug?: string } }) {
+//   const slug = searchParams?.slug;
+
+//   if (!slug) {
+//     return <p className="text-center text-red-600 py-20">No slug provided.</p>;
+//   }
+
+//   // ✅ Fetch blog data by slug from Strapi using your helper
+//   const res = await fetchAPI(`/blogs?filters[slug][$eq]=${slug}&populate=*`);
+//   const blog = res?.data?.[0];
+
+//   if (!blog) {
+//     return <p className="text-center text-red-600 py-20">Blog not found.</p>;
+//   }
+export default async function BlogDetailPage(props: { searchParams: { slug?: string } }) {
+
+  // ⭐ Next.js 15 — searchParams is async
+  const searchParams = await props.searchParams;
+
+  const slug = typeof searchParams?.slug === "string" ? searchParams.slug : "";
 
   if (!slug) {
     return <p className="text-center text-red-600 py-20">No slug provided.</p>;
   }
 
-  // ✅ Fetch blog data by slug from Strapi using your helper
   const res = await fetchAPI(`/blogs?filters[slug][$eq]=${slug}&populate=*`);
   const blog = res?.data?.[0];
 
   if (!blog) {
     return <p className="text-center text-red-600 py-20">Blog not found.</p>;
   }
-
   // ✅ Extract values from Strapi response
   const { Title, Summary, Description, author, FeatureImage, publishedAt } = blog;
 
