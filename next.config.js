@@ -2,7 +2,7 @@
 const isProd = process.env.NODE_ENV === "production";
 
 module.exports = {
-  //output: "export", // enables static HTML export
+  output: "export", // enables static HTML export
   trailingSlash: true,
   basePath: isProd ? "/frondesk-new-website" : "",
   assetPrefix: isProd ? "/frondesk-new-website/" : "",
