@@ -1,7 +1,5 @@
 
 
-// app/blog/page.tsx
-
 import { Suspense } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -33,14 +31,14 @@ function resolveImageUrl(featureImage: any) {
 
 export default async function Blog() {
   // Static defaults at build time
-  const search = "";
+  const search = ""; 
   const page = 1;
   const pageSize = 6;
 
   const apiUrl = `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/blogs?populate=*&sort=publishedAt:desc&pagination[page]=${page}&pagination[pageSize]=${pageSize}`;
 
   const res = await fetch(apiUrl, {
-    // ISR-friendly fetch config — regenerate every 60 seconds
+    // Fix: ISR-friendly fetch - no cache: 'no-store', and revalidate every 60s
     next: { revalidate: 60 },
   });
 
@@ -60,7 +58,7 @@ export default async function Blog() {
       />
 
       <section className="pt-[120px] pb-[120px]">
-        <SearchBar search={search} />
+        {/* <SearchBar search={search} /> */}
 
         <div className="container">
           <div className="-mx-4 flex flex-wrap justify-center">
@@ -141,9 +139,7 @@ export default async function Blog() {
                 <ul className="flex items-center justify-center pt-8">
                   <li className="mx-1">
                     <Link
-                      href={`/blog?search=${encodeURIComponent(
-                        search
-                      )}&page=${Math.max(page - 1, 1)}`}
+                      href={`/blog?search=${encodeURIComponent(search)}&page=${Math.max(page - 1, 1)}`}
                       className="bg-body-color/15 text-body-color hover:bg-primary flex h-9 min-w-[36px] items-center justify-center rounded-md px-4 text-sm transition hover:text-white"
                     >
                       Prev
@@ -153,9 +149,7 @@ export default async function Blog() {
                   {Array.from({ length: meta.pageCount }, (_, i) => (
                     <li key={i} className="mx-1">
                       <Link
-                        href={`/blog?search=${encodeURIComponent(
-                          search
-                        )}&page=${i + 1}`}
+                        href={`/blog?search=${encodeURIComponent(search)}&page=${i + 1}`}
                         className={`flex h-9 min-w-[36px] items-center justify-center rounded-md px-4 text-sm transition ${
                           page === i + 1
                             ? "bg-primary text-white"
@@ -169,9 +163,7 @@ export default async function Blog() {
 
                   <li className="mx-1">
                     <Link
-                      href={`/blog?search=${encodeURIComponent(
-                        search
-                      )}&page=${Math.min(page + 1, meta.pageCount)}`}
+                      href={`/blog?search=${encodeURIComponent(search)}&page=${Math.min(page + 1, meta.pageCount)}`}
                       className="bg-body-color/15 text-body-color hover:bg-primary flex h-9 min-w-[36px] items-center justify-center rounded-md px-4 text-sm transition hover:text-white"
                     >
                       Next
