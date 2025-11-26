@@ -132,7 +132,6 @@ export default async function Blog() {
             })}
           </div>
 
-          {/* Pagination UI
           {meta.pageCount > 1 && (
             <div className="-mx-4 flex flex-wrap">
               <div className="w-full px-4">
@@ -163,9 +162,9 @@ export default async function Blog() {
                         {i + 1}
                       </Link>
                     </li>
-                  ))} */}
+                  ))} 
 
-                  {/* <li className="mx-1">
+                  <li className="mx-1">
                     <Link
                       href={`/blog?search=${encodeURIComponent(
                         search
@@ -178,7 +177,7 @@ export default async function Blog() {
                 </ul>
               </div>
             </div>
-          )} */}
+          )} 
         </div>
       </section>
     </Suspense>
