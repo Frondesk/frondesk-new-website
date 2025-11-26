@@ -40,8 +40,8 @@ export default async function Blog() {
   const apiUrl = `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/blogs?populate=*&sort=publishedAt:desc&pagination[page]=${page}&pagination[pageSize]=${pageSize}`;
 
   const res = await fetch(apiUrl, {
-    // STATIC / ISR-FRIENDLY: remove "no-store"
-    next: { revalidate: 60 }, // re-generate every 60s; adjust as needed
+    // ISR-friendly fetch config — regenerate every 60 seconds
+    next: { revalidate: 60 },
   });
 
   if (!res.ok) {
@@ -134,7 +134,7 @@ export default async function Blog() {
             })}
           </div>
 
-          {/* Pagination UI (same as you had, page=1 at build) */}
+          {/* Pagination UI */}
           {meta.pageCount > 1 && (
             <div className="-mx-4 flex flex-wrap">
               <div className="w-full px-4">
@@ -155,7 +155,7 @@ export default async function Blog() {
                       <Link
                         href={`/blog?search=${encodeURIComponent(
                           search
-                        )}&page={i + 1}`}
+                        )}&page=${i + 1}`}
                         className={`flex h-9 min-w-[36px] items-center justify-center rounded-md px-4 text-sm transition ${
                           page === i + 1
                             ? "bg-primary text-white"
@@ -186,6 +186,7 @@ export default async function Blog() {
     </Suspense>
   );
 }
+
 
 
 
