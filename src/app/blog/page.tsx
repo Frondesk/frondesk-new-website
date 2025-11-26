@@ -1,3 +1,5 @@
+
+
 import { Suspense } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -5,15 +7,11 @@ import Breadcrumb from "@/components/Common/Breadcrumb";
 import SearchBar from "./SearchBar";
 
 export const metadata = {
-  title: "Frondesk Blog | Stories that Shape the Future of Car Dealerships | Frsk Perspectives",
+  title:
+    "Frondesk Blog | Stories that Shape the Future of Car Dealerships | Frsk Perspectives",
   description:
     "Explore the Frondesk Blog — your source for AI dealership insights, automotive management guides, sales growth strategies.",
 };
-
-// ⭐ FIX: Correct type for Next.js 15
-interface PageProps {
-  searchParams: Promise<{ search?: string; page?: string }>;
-}
 
 function resolveImageUrl(featureImage: any) {
   if (!featureImage) return "/images/blog/default.png";
@@ -31,21 +29,13 @@ function resolveImageUrl(featureImage: any) {
     : `${process.env.NEXT_PUBLIC_STRAPI_URL}${url}`;
 }
 
-export default async function Blog({ searchParams }: PageProps) {
-  // ⭐ REQUIRED: Await searchParams
-  const params = await searchParams;
-
-  const search = typeof params.search === "string" ? params.search : "";
-  const page =
-    typeof params.page === "string" ? parseInt(params.page, 10) : 1;
-
+export default async function Blog() {
+  // Static defaults for export-safe build
+  const search = "";
+  const page = 1;
   const pageSize = 6;
 
-  const apiUrl = search
-    ? `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/blogs?populate=*&filters[Title][$containsi]=${encodeURIComponent(
-        search
-      )}&sort=publishedAt:desc&pagination[page]=${page}&pagination[pageSize]=${pageSize}`
-    : `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/blogs?populate=*&sort=publishedAt:desc&pagination[page]=${page}&pagination[pageSize]=${pageSize}`;
+  const apiUrl = `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/blogs?populate=*&sort=publishedAt:desc&pagination[page]=${page}&pagination[pageSize]=${pageSize}`;
 
   const res = await fetch(apiUrl, { cache: "no-store" });
   if (!res.ok) throw new Error("Failed to fetch blogs from Strapi");
@@ -62,6 +52,7 @@ export default async function Blog({ searchParams }: PageProps) {
       />
 
       <section className="pt-[120px] pb-[120px]">
+        {/* SearchBar still renders, just gets empty default search */}
         <SearchBar search={search} />
 
         <div className="container">
@@ -123,7 +114,7 @@ export default async function Blog({ searchParams }: PageProps) {
                           By {raw?.author || "Unknown"}
                         </h4>
 
-                        <p className="text-xs text-body-color">
+                          <p className="text-xs text-body-color">
                           {publishedAt
                             ? new Date(publishedAt).toLocaleDateString()
                             : "N/A"}
@@ -136,11 +127,12 @@ export default async function Blog({ searchParams }: PageProps) {
             })}
           </div>
 
-          {/* Pagination */}
+          {/* Static pagination UI using meta.pageCount & default page = 1 */}
           {meta.pageCount > 1 && (
             <div className="-mx-4 flex flex-wrap">
               <div className="w-full px-4">
                 <ul className="flex items-center justify-center pt-8">
+                  {/* Prev */}
                   <li className="mx-1">
                     <Link
                       href={`/blog?search=${encodeURIComponent(
@@ -152,6 +144,7 @@ export default async function Blog({ searchParams }: PageProps) {
                     </Link>
                   </li>
 
+                  {/* Page numbers */}
                   {Array.from({ length: meta.pageCount }, (_, i) => (
                     <li key={i} className="mx-1">
                       <Link
@@ -169,6 +162,7 @@ export default async function Blog({ searchParams }: PageProps) {
                     </li>
                   ))}
 
+                  {/* Next */}
                   <li className="mx-1">
                     <Link
                       href={`/blog?search=${encodeURIComponent(
