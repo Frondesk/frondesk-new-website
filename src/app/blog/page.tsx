@@ -1,5 +1,7 @@
 
 
+// app/blog/page.tsx
+
 import { Suspense } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -30,15 +32,21 @@ function resolveImageUrl(featureImage: any) {
 }
 
 export default async function Blog() {
-  // Static defaults for export-safe build
+  // Static defaults at build time
   const search = "";
   const page = 1;
   const pageSize = 6;
 
   const apiUrl = `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/blogs?populate=*&sort=publishedAt:desc&pagination[page]=${page}&pagination[pageSize]=${pageSize}`;
 
-  const res = await fetch(apiUrl, { cache: "no-store" });
-  if (!res.ok) throw new Error("Failed to fetch blogs from Strapi");
+  const res = await fetch(apiUrl, {
+    // STATIC / ISR-FRIENDLY: remove "no-store"
+    next: { revalidate: 60 }, // re-generate every 60s; adjust as needed
+  });
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch blogs from Strapi");
+  }
 
   const data = await res.json();
   const blogs = data?.data || [];
@@ -52,7 +60,6 @@ export default async function Blog() {
       />
 
       <section className="pt-[120px] pb-[120px]">
-        {/* SearchBar still renders, just gets empty default search */}
         <SearchBar search={search} />
 
         <div className="container">
@@ -114,7 +121,7 @@ export default async function Blog() {
                           By {raw?.author || "Unknown"}
                         </h4>
 
-                          <p className="text-xs text-body-color">
+                        <p className="text-xs text-body-color">
                           {publishedAt
                             ? new Date(publishedAt).toLocaleDateString()
                             : "N/A"}
@@ -127,12 +134,11 @@ export default async function Blog() {
             })}
           </div>
 
-          {/* Static pagination UI using meta.pageCount & default page = 1 */}
+          {/* Pagination UI (same as you had, page=1 at build) */}
           {meta.pageCount > 1 && (
             <div className="-mx-4 flex flex-wrap">
               <div className="w-full px-4">
                 <ul className="flex items-center justify-center pt-8">
-                  {/* Prev */}
                   <li className="mx-1">
                     <Link
                       href={`/blog?search=${encodeURIComponent(
@@ -144,13 +150,12 @@ export default async function Blog() {
                     </Link>
                   </li>
 
-                  {/* Page numbers */}
                   {Array.from({ length: meta.pageCount }, (_, i) => (
                     <li key={i} className="mx-1">
                       <Link
                         href={`/blog?search=${encodeURIComponent(
                           search
-                        )}&page=${i + 1}`}
+                        )}&page={i + 1}`}
                         className={`flex h-9 min-w-[36px] items-center justify-center rounded-md px-4 text-sm transition ${
                           page === i + 1
                             ? "bg-primary text-white"
@@ -162,7 +167,6 @@ export default async function Blog() {
                     </li>
                   ))}
 
-                  {/* Next */}
                   <li className="mx-1">
                     <Link
                       href={`/blog?search=${encodeURIComponent(
@@ -182,8 +186,6 @@ export default async function Blog() {
     </Suspense>
   );
 }
-
-
 
 
 
