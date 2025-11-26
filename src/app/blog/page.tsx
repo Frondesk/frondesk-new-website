@@ -35,7 +35,7 @@ export default async function Blog() {
   const page = 1;
   const pageSize = 6;
 
-  const apiUrl = `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/blogs?populate=*&sort=publishedAt:desc&pagination[page]=${page}&pagination[pageSize]=${pageSize}`;
+const apiUrl = `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/blogs?populate=*&sort=publishedAt:desc&pagination[limit]=${pageSize}&pagination[start]=${(page - 1) * pageSize}`;
 
   const res = await fetch(apiUrl, {
     // Use ISR friendly revalidate
