@@ -1,3 +1,4 @@
+export const revalidate = 20;
 import Image from "next/image";
 import Link from "next/link";
 import SectionTitle from "../Common/SectionTitle";
@@ -5,8 +6,6 @@ import SectionTitle from "../Common/SectionTitle";
 export default async function BlogSection() {
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/blogs?populate=*&sort=publishedAt:desc&pagination[limit]=6`
-,
-    { cache: "no-store" }
   );
 
   if (!res.ok) throw new Error("Failed to fetch blogs from Strapi");
