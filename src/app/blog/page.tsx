@@ -1,5 +1,5 @@
 
-
+export const revalidate = 60; // Revalidate every 60 seconds
 import { Suspense } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -8,7 +8,7 @@ import SearchBar from "./SearchBar";
 
 export const metadata = {
   title:
-    "Frondesk Blog | Stories that Shape the Future of Car Dealerships | Frsk Perspectives",
+    "Frondesk Blog | Stories that Shape the Future of Car Dealerships | Frondesk Perspectives",
   description:
     "Explore the Frondesk Blog — your source for AI dealership insights, automotive management guides, sales growth strategies.",
 };
@@ -39,7 +39,7 @@ const apiUrl = `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/blogs?populate=*&sort=
 
   const res = await fetch(apiUrl, {
     // Use ISR friendly revalidate
-    next: { revalidate: 60 }, // Regenerate page every 60 seconds
+    //next: { revalidate: 60 }, // Regenerate page every 60 seconds
   });
 
   if (!res.ok) {
