@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 
 interface SearchBarProps {
@@ -8,35 +8,54 @@ interface SearchBarProps {
   category?: string;
 }
 
-// Example categories — replace with your own
-const categories = ["All", "Technology", "Cars", "Insurance", "Business"];
+interface Category {
+  id: number;
+  name: string;
+}
 
 export default function SearchBar({ search = "", category = "All" }: SearchBarProps) {
   const [query, setQuery] = useState(search);
   const [selectedCategory, setSelectedCategory] = useState(category);
+  const [categories, setCategories] = useState<Category[]>([]);
   const router = useRouter();
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+  // Fetch categories from Strapi
+  useEffect(() => {
+    async function loadCategories() {
+      try {
+        const res = await fetch(
+          `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/categories?populate=*&sort=name:asc&pagination[limit]=100`
+        );
+        const data = await res.json();
 
-    const params = new URLSearchParams();
+        if (data?.data) {
+          const formatted = data.data.map((item: any) => ({
+            id: item.id,
+            name: item.attributes.name,
+          }));
 
-    if (query) params.set("search", query);
-    if (selectedCategory && selectedCategory !== "All") {
-      params.set("category", selectedCategory);
+          setCategories([{ id: 0, name: "All" }, ...formatted]);
+        }
+      } catch (err) {
+        console.error("Error loading categories:", err);
+      }
     }
 
-    router.push(`/blog?${params.toString()}`);
-  };
+    loadCategories();
+  }, []);
 
-  const handleCategoryClick = (cat: string) => {
-    setSelectedCategory(cat);
-
+  const updateURL = (cat: string) => {
     const params = new URLSearchParams();
+
     if (query) params.set("search", query);
     if (cat !== "All") params.set("category", cat);
 
     router.push(`/blog?${params.toString()}`);
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    updateURL(selectedCategory);
   };
 
   return (
@@ -45,17 +64,20 @@ export default function SearchBar({ search = "", category = "All" }: SearchBarPr
       <div className="flex flex-wrap justify-center gap-3 mb-6">
         {categories.map((cat) => (
           <button
-            key={cat}
+            key={cat.id}
             type="button"
-            onClick={() => handleCategoryClick(cat)}
+            onClick={() => {
+              setSelectedCategory(cat.name);
+              updateURL(cat.name);
+            }}
             className={`px-4 py-2 rounded-md border transition-all duration-300 
               ${
-                selectedCategory === cat
+                selectedCategory === cat.name
                   ? "bg-primary text-white border-primary"
                   : "bg-[#f8f8f8] dark:bg-[#2C303B] border-stroke dark:border-transparent text-black dark:text-body-color-dark"
               }`}
           >
-            {cat}
+            {cat.name}
           </button>
         ))}
       </div>
@@ -84,49 +106,3 @@ export default function SearchBar({ search = "", category = "All" }: SearchBarPr
     </div>
   );
 }
-
-
-
-
-// "use client";
-
-// import { useState } from "react";
-// import { useRouter } from "next/navigation";
-
-// interface SearchBarProps {
-//   search?: string;
-// }
-
-// export default function SearchBar({ search = "" }: SearchBarProps) {
-//   const [query, setQuery] = useState(search);
-//   const router = useRouter();
-
-//   const handleSubmit = (e: React.FormEvent) => {
-//     e.preventDefault();
-//     router.push(`/blog?search=${encodeURIComponent(query)}`);
-//   };
-
-//   return (
-//     <div className="container pt-[50px]">
-//       <form onSubmit={handleSubmit} className="flex items-center justify-center mb-10">
-//         <input
-//           type="text"
-//           name="search"
-//           value={query}
-//           onChange={(e) => setQuery(e.target.value)}
-//           placeholder="Search blogs..."
-//           className="border-stroke mr-4 w-full max-w-[400px] rounded-md border bg-[#f8f8f8] px-6 py-3 
-//                      text-base outline-hidden transition-all duration-300 dark:border-transparent
-//                      dark:bg-[#2C303B] dark:text-body-color-dark"
-//         />
-//         <button
-//           type="submit"
-//           aria-label="search button"
-//           className="bg-primary flex h-[50px] w-[50px] items-center justify-center rounded-md text-white"
-//         >
-//           🔍
-//         </button>
-//       </form>
-//     </div>
-//   );
-// }
