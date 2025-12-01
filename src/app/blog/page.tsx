@@ -64,7 +64,7 @@ const apiUrl = `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/blogs?populate=*&sort=
           <div className="-mx-4 flex flex-wrap justify-center">
             {blogs.length === 0 && (
               <p className="text-center w-full text-xl text-red-500 py-20">
-                No blogs found for “{search}”
+                No blogsffffff found for “{search}”
               </p>
             )}
 
