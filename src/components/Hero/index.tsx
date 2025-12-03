@@ -20,12 +20,14 @@ const Hero = () => {
                 Unlock more profits for your vehicle dealership business with industry-leading software that optimizes operations, enhances efficiency, and improves every aspect of your dealership- Frondesk Technologies is trusted by top dealerships nationwide for reliability and results.
                 </p>
                 <div className="flex flex-col items-center justify-center space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">
-                  <Link
-                    href="/contact"
-                    className="rounded-xs bg-primary px-8 py-4 text-base font-semibold text-white duration-300 ease-in-out hover:bg-primary/80"
-                  >
-                    🔥Get a Free Demo
-                  </Link>
+                <Link
+  href="/contact"
+  className="rounded-xs bg-primary px-8 py-4 text-base font-semibold text-white duration-300 ease-in-out hover:bg-primary/80 flex items-center gap-2"
+>
+  <span className="fire-animate">🔥</span>
+  <span className="text-animate">Get a Free Demo</span>
+</Link>
+
                   {/* <svg 
   xmlns="http://www.w3.org/2000/svg" 
   width="364" 
@@ -70,6 +72,34 @@ const Hero = () => {
                 </div>
               </div>
             </div>
+          
+<div className="hero-wrapper" aria-hidden={false}>
+  <div className="hero-move">
+    {/* Blue car SVG */}
+    <svg
+      className="car"
+      width="80"
+      height="40"
+      viewBox="0 0 80 40"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+      role="img"
+    >
+      <rect x="8" y="14" width="60" height="16" rx="4" fill="#1976D2"/>
+      <rect x="20" y="6" width="36" height="12" rx="3" fill="#42A5F5"/>
+      <rect x="24" y="8" width="12" height="8" rx="2" fill="#BBDEFB"/>
+      <rect x="40" y="8" width="12" height="8" rx="2" fill="#BBDEFB"/>
+      <circle cx="24" cy="32" r="6" fill="#222"/>
+      <circle cx="24" cy="32" r="3" fill="#ECECEC"/>
+      <circle cx="56" cy="32" r="6" fill="#222"/>
+      <circle cx="56" cy="32" r="3" fill="#ECECEC"/>
+    </svg>
+
+    {/* Text that moves with the car */}
+    <h1 className="  dark:text-white sm:text-2xl sm:leading-tight md:text-3xl md:leading-tight">Intelligent Revenue booster</h1>
+  </div>
+</div>
+
           </div>
         </div>
         <div className="absolute right-0 top-0 z-[-1] opacity-30 lg:opacity-100">

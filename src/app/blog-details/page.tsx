@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   description:
     "Stories that Shape the Future of Car Dealerships | Frondesk Perspectives",
   keywords: [
-    "Frsk blog article",
+    "Frondesk  blog article",
     "AI dealership management",
     "automotive technology insights",
     "car dealer sales strategies",
@@ -25,8 +25,9 @@ export const metadata: Metadata = {
     "dealership revenue growth",
     "automotive industry innovations",
     "car dealer digital transformation",
+    "Frondesk Technologies and Solutions",
   ],
-  authors: [{ name: "Frondesk Technologies" }],
+  authors: [{ name: "Frondesk Technologies and Solutions" }],
   robots: {
     index: true,
     follow: true,
@@ -94,7 +95,7 @@ export default function BlogDetailsPage() {
                       </div>
                       <div className="w-full">
                         <span className="text-body-color mb-1 text-base font-medium">
-                          By <span>Frondesk Technologies</span>
+                          By <span>Frondesk Technologies and Solutions</span>
                         </span>
                       </div>
                     </div>

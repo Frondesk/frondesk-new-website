@@ -3,9 +3,9 @@ import Link from "next/link";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
- title: "Create Your Account | Sign Up with Frondesk Technologies",
+ title: "Create Your Account | Sign Up with Frondesk Technologies and Solutions",
   description:
-    "Join Frondesk Technologies and experience the power of AI-driven dealership management. Sign up to access tools for sales automation, customer tracking, and performance insights that grow your automotive business.",
+    "Join Frondesk Technologies and Solutions Pvt experience the power of AI-driven dealership management. Sign up to access tools for sales automation, customer tracking, and performance insights that grow your automotive business.",
   keywords: [
     "sign up Frondesk",
     "create Frondesk account",
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
         url: "https://yourdomain.com/images/signup-og.jpg",
         width: 1200,
         height: 630,
-        alt: "Sign Up with Frondesk Technologies",
+        alt: "Sign Up with Frondesk Technologies and Solutions",
       },
     ],
     locale: "en_US",
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Sign Up | Join Frondesk Technologies",
+    title: "Sign Up | Join Frondesk Technologies and Solutions",
     description:
       "Create your Frondesk account and experience smarter dealership management with AI-powered tools for growth and automation.",
     images: ["https://yourdomain.com/images/signup-og.jpg"],

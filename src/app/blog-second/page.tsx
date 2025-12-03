@@ -317,7 +317,7 @@ Our Frondesk Technologies Tyre automation tools send timely alerts and handle th
                       </svg>
                     </span>
                   </div>
-                  <p className="text-body-color mb-10 text-base leading-relaxed font-medium sm:text-lg sm:leading-relaxed lg:text-base lg:leading-relaxed xl:text-lg xl:leading-relaxed">
+            <p className="text-body-color mb-10 text-base leading-relaxed font-medium sm:text-lg sm:leading-relaxed lg:text-base lg:leading-relaxed xl:text-lg xl:leading-relaxed">
                     One Platform. Multiple Solutions.
                   </p>
                   <div className="items-center justify-between sm:flex">

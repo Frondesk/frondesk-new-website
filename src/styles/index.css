@@ -133,3 +133,103 @@ layer(base);
     @apply inline-flex;
   }
 }
+.fire-animate {
+  display: inline-block;
+  animation: flicker 0.8s infinite alternate ease-in-out;
+}
+
+@keyframes flicker {
+  0%   { transform: scale(1) rotate(-2deg); filter: brightness(1); }
+  50%  { transform: scale(1.1) rotate(2deg); filter: brightness(1.2); }
+  100% { transform: scale(0.95) rotate(-1deg); filter: brightness(0.9); }
+}
+
+
+.btn-animate {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  animation: pulseButton 1.4s infinite ease-in-out;
+}
+
+@keyframes pulseButton {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+/* get a free demo wave animation */
+
+.fire-animate {
+  animation: flicker 1s infinite ease-in-out;
+}
+@keyframes flicker {
+  0% { opacity: 1; }
+  50% { opacity: 0.7; }
+  100% { opacity: 1; }
+}
+
+.text-animate {
+  animation: softFade 1.6s infinite ease-in-out;
+}
+@keyframes softFade {
+  0% { opacity: 1; }
+  50% { opacity: 0.75; }
+  100% { opacity: 1; }
+}
+
+
+/* CSS - add to global CSS */
+.hero-wrapper {
+  width: 100%;
+  overflow: hidden;           /* keep things tidy inside the hero */
+  display: flex;
+  justify-content: center;   /* center the moving group in the hero */
+  padding: 40px 20px;
+  box-sizing: border-box;
+}
+
+.hero-move {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  /* Move the whole group left-right smoothly */
+  animation: groupSlide 3s ease-in-out infinite;
+}
+
+.car {
+  width: 80px;
+  height: auto;
+  /* tiny vertical bob to feel lively (keeps in sync with groupSlide) */
+  animation: carBob 4s ease-in-out infinite;
+  transform-origin: center;
+}
+
+.hero-text {
+  margin: 0;
+  font-size: 1.6rem;         /* adjust to taste */
+  font-weight: 700;
+  color: #0f172a;            /* dark text — change as needed */
+  letter-spacing: 0.4px;
+  white-space: nowrap;
+}
+
+/* Group slide: moves both car + text together */
+@keyframes groupSlide {
+  0%   { transform: translateX(0); }
+  50%  { transform: translateX(18px); } /* how far it moves — change px to taste */
+  100% { transform: translateX(0); }
+}
+
+/* Car bob: subtle up/down motion for the car itself */
+@keyframes carBob {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-6px); }
+  100% { transform: translateY(0); }
+}
+
+/* Optional: reduce motion on prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .hero-move, .car { animation: none; }
+}
+

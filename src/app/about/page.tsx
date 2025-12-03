@@ -5,7 +5,7 @@ import Breadcrumb from "@/components/Common/Breadcrumb";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-title: "About Frondesk Technologies Solutions | AI-Powered Dealership Management & Revenue Booster Platform",
+title: "About Frondesk Technologies and Solutions | AI-Powered Dealership Management & Revenue Booster Platform",
 
   
  description:
@@ -44,7 +44,7 @@ title: "About Frondesk Technologies Solutions | AI-Powered Dealership Management
   "Revenue Intelligent",
 
 ],
-  authors: [{ name: "Frsk Technologies" }],
+  authors: [{ name: "Frondesk Technologies and Solutions" }],
  
   robots: {
     index: true,

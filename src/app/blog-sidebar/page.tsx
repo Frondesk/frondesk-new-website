@@ -14,7 +14,7 @@ function withBasePath(src) {
 export const metadata: Metadata = {
    title: "Frondesk Blog Insights | Expert Articles on Automotive, AI & Dealership Growth",
   description:
-    "Explore detailed articles from Frondesk Technologies covering AI-driven dealership management, automotive innovation, and business growth strategies. Gain expert insights to help your dealership thrive in the digital era.",
+    "Explore detailed articles from Frondesk Technologies and Solutions Pvt covering AI-driven dealership management, automotive innovation, and business growth strategies. Gain expert insights to help your dealership thrive in the digital era.",
   keywords: [
     "Frondesk blog",
     "automotive technology insights",

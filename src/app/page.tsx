@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   },
    title: "Frondesk | All-in-One AI Dealership Management Platform",
   description:
-    "Frondesk Technologies offers a complete AI-powered dealership management platform to handle new and used car sales, inventory, tyre, and insurance management—all in one place. Simplify operations, boost sales, and grow your dealership with automation and real-time insights.",
+    "Frondesk Technologies and Solutions Pvt offers a complete AI-powered dealership management platform to handle new and used car sales, inventory, tyre, and insurance management—all in one place. Simplify operations, boost sales, and grow your dealership with automation and real-time insights.",
   keywords: [
     "Frondesk",
     "AI dealership management platform",
@@ -43,6 +43,7 @@ export const metadata: Metadata = {
     "dealership revenue booster",
     "automotive software platform",
     "Frondesk Technologies",
+    "Frondesk Technologies and Solutions",
   ],
   authors: [{ name: "Frondesk Technologies" }],
   robots: {
@@ -61,7 +62,7 @@ export const metadata: Metadata = {
     description:
       "Manage new and used car sales, inventory, tyre, and insurance from one unified AI platform. Frondesk simplifies dealership management and drives business growth.",
     url: "https://yourdomain.com",
-    siteName: "Frondesk Technologies",
+    siteName: "Frondesk Technologies and solutions Pvt",
     images: [
       {
         url: "https://yourdomain.com/images/home-og.jpg",

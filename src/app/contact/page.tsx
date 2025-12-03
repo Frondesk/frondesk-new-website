@@ -4,9 +4,9 @@ import Contact from "@/components/Contact";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-   title: "Contact Frondesk Technologies | Get Support & Schedule a Demo",
+   title: "Contact Frondesk Technologies and Solutions| Get Support & Schedule a Demo",
   description:
-    "Have questions or need assistance? Contact Frondesk Technologies for support or to schedule a free demo of our  dealership management solutions.",
+    "Have questions or need assistance? Contact Frondesk Technologies and Solutions for support or to schedule a free demo of our  dealership management solutions.",
   keywords: [
     "contact Frondesk Technologies Solutions",
     "Frondesk support",
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Contact Frondesk Technologies | Talk to Our Experts",
+    title: "Contact Frondesk Technologies and Solutions | Talk to Our Experts",
     description:
       "Reach out to Frondesk Technologies for product demos, customer support, or partnership discussions. We're here to help you grow your dealership with AI-driven solutions.",
     url: "https://yourdomain.com/contact",
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
         url: "https://yourdomain.com/images/contact-og.jpg",
         width: 1200,
         height: 630,
-        alt: "Contact Frondesk Technologies Solutions",
+        alt: "Contact Frondesk Technologies & Solutions",
       },
     ],
     locale: "en_US",
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Contact Frondesk Technologies | Get in Touch",
+    title: "Contact Frondesk Technologies & Solutions | Get in Touch",
     description:
       "Connect with the Frondesk team for support, demos, or collaboration. Let’s shape the future of automotive dealerships together.",
     images: ["https://yourdomain.com/images/contact-og.jpg"],
