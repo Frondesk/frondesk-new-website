@@ -20,7 +20,7 @@ import NewsLatterBox from "@/components/Contact/NewsLatterBox";
 //   }
 export default async function BlogDetailPage(props: { searchParams: { slug?: string } }) {
 
-  // ⭐ Next.js 15 — searchParams is async
+  
   const searchParams = await props.searchParams;
 
   const slug = typeof searchParams?.slug === "string" ? searchParams.slug : "";
@@ -44,7 +44,7 @@ export default async function BlogDetailPage(props: { searchParams: { slug?: str
     : "/placeholder.jpg";
 
   return (
-    <section className="overflow-hidden pt-[180px] pb-[120px]">
+    <section className=" bg-gray-light dark:bg-bg-color-dark py-16 md:py-20 lg:py-28">
       <div className="container">
         <div className="-mx-4 flex flex-wrap">
           <div className="w-full px-4 lg:w-8/12">
@@ -88,7 +88,7 @@ export default async function BlogDetailPage(props: { searchParams: { slug?: str
             {/* Blog Summary */}
             <p className="text-body-color mb-10 text-base leading-relaxed font-medium sm:text-lg">
               {Summary ||
-                "This blog post explores insights from the Frondesk Technologies platform."}
+                "This blog post explores insights from the Frondesk Technologies and Solutions platform."}
             </p>
 
             {/* Blog Description (if available) */}

@@ -5,6 +5,24 @@ import Image from "next/image";
 import Link from "next/link";
 import Breadcrumb from "@/components/Common/Breadcrumb";
 import SearchBar from "./SearchBar";
+function shortTextWithReadMore(text: string, slug: string, wordLimit = 30) {
+  if (!text) return "";
+
+  const words = text.split(" ");
+  if (words.length > wordLimit) {
+    const truncated = words.slice(0, wordLimit).join(" ") + " ";
+    return (
+      <>
+        {truncated}
+        <Link href={`/blog_detail_St?slug=${slug}`} className="text-primary ml-1">
+          Read More
+        </Link>
+      </>
+    );
+  }
+
+  return text;
+}
 
 export const metadata = {
   title:
@@ -87,10 +105,11 @@ const apiUrl = `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/blogs?populate=*&sort=
                   key={slug}
                   className="w-full px-4 md:w-2/3 lg:w-1/2 xl:w-1/3"
                 >
-                  <div className="group shadow-one hover:shadow-two dark:bg-white relative overflow-hidden rounded-xs bg-white duration-300">
+                 <div className="group shadow-one hover:shadow-two dark:bg-dark relative overflow-hidden rounded-xs bg-white duration-300">
+
                     <Link
                       href={`/blog_detail_St?slug=${slug}`}
-                      className="relative block aspect-[20/14]"
+                      className="relative block aspect-[20/14] "
                     >
                       <Image
                         src={coverUrl}
@@ -104,15 +123,20 @@ const apiUrl = `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/blogs?populate=*&sort=
                       <h3>
                         <Link
                           href={`/blog_detail_St?slug=${slug}`}
-                          className="hover:text-primary mb-4 block text-xl font-bold text-black sm:text-2xl"
+                          className="hover:text-primary mb-4 block text-xl font-bold text-blue sm:text-2xl"
                         >
                           {title}
                         </Link>
                       </h3>
 
-                      <p className="text-body-color mb-6 text-base font-medium">
+                      {/* <p className="text-body-color mb-6 text-base font-medium">
                         {summary}
-                      </p>
+                      </p> */}
+
+                      <p className="text-body-color mb-6 text-base font-medium">
+  {shortTextWithReadMore(summary, slug)}
+</p>
+
 
                       <div className="flex items-center justify-between">
                         <h4 className="text-sm font-medium text-dark">

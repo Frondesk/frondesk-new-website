@@ -2,10 +2,28 @@ export const revalidate = 20;
 import Image from "next/image";
 import Link from "next/link";
 import SectionTitle from "../Common/SectionTitle";
+function shortText(text: string, slug: string) {
+  if (!text) return "";
+  const words = text.split(" ");
+
+  if (words.length > 30) {
+    const truncated = words.slice(0, 30).join(" ") + " ";
+    return (
+      <>
+        {truncated}
+        <Link href={`/blog_detail_St?slug=${slug}`} className="text-primary ml-1">
+          Read More
+        </Link>
+      </>
+    );
+  }
+
+  return text;
+}
 
 export default async function BlogSection() {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/blogs?populate=*&sort=publishedAt:desc&pagination[limit]=6`
+    `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/blogs?populate=*&sort=publishedAt:desc&pagination[limit]=3`
   );
 
   if (!res.ok) throw new Error("Failed to fetch blogs from Strapi");
@@ -65,8 +83,11 @@ export default async function BlogSection() {
                     </Link>
                   </h3>
 
-                  <p className="text-body-color mb-6 text-base font-medium">
+                  {/* <p className="text-body-color mb-6 text-base font-medium">
                     {Summary || "No summary available."}
+                  </p> */}
+                  <p className="text-body-color mb-6 text-base font-medium">
+                 {shortText(Summary, slug)}
                   </p>
 
                   <div className="flex items-center justify-between">

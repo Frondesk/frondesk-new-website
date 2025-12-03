@@ -183,13 +183,13 @@ const featuresData: Feature[] = [
   fill="none"
 >
   
-  <circle cx="24" cy="24" r="22" stroke="#532AE5" stroke-width="2" />
+  <circle cx="24" cy="24" r="22" stroke="#532AE5" strokeWidth="2" />
 
   
   <path 
     d="M14 28h20l-2-7c-.4-1.2-1.4-2-2.6-2H18.6c-1.2 0-2.2.8-2.6 2l-2 7Z" 
     stroke="#532AE5" 
-    stroke-width="2" 
+    strokeWidth="2" 
     fill="none" 
     stroke-linecap="round" 
     stroke-linejoin="round"
@@ -260,17 +260,17 @@ const featuresData: Feature[] = [
     icon: (
    <svg width="70" height="70" viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
   
-  <path d="M10 45 H30 L45 25 H75 L90 45 H110" stroke="#532AE5" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <path d="M10 45 H30 L45 25 H75 L90 45 H110" stroke="#532AE5" strokeWidth="4" fill="none" strokeLinecap="round"/>
   
 
-  <circle cx="35" cy="65" r="10" stroke="#532AE5" stroke-width="4"/>
-  <circle cx="85" cy="65" r="10" stroke="#532AE5" stroke-width="4"/>
+  <circle cx="35" cy="65" r="10" stroke="#532AE5" strokeWidth="4"/>
+  <circle cx="85" cy="65" r="10" stroke="#532AE5" strokeWidth="4"/>
 
  
-  <line x1="50" y1="25" x2="50" y2="5" stroke="#532AE5" stroke-width="3"/>
+  <line x1="50" y1="25" x2="50" y2="5" stroke="#532AE5" strokeWidth="3"/>
   <circle cx="50" cy="5" r="4" fill="#532AE5"/>
 
-  <line x1="70" y1="25" x2="70" y2="10" stroke="#532AE5" stroke-width="3"/>
+  <line x1="70" y1="25" x2="70" y2="10" stroke="#532AE5" strokeWidth="3"/>
   <circle cx="70" cy="10" r="4" fill="#532AE5"/>
 </svg>
 
@@ -284,7 +284,7 @@ const featuresData: Feature[] = [
     icon: (
    <svg width="80" height="80" viewBox="0 0 120 100" fill="none" xmlns="http://www.w3.org/2000/svg">
 
-  <path d="M10 55 H25 L35 40 H65 L75 55 H100" stroke="#532AE5" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <path d="M10 55 H25 L35 40 H65 L75 55 H100" stroke="#532AE5" strokeWidth="4" fill="none" stroke-linecap="round"/>
   <circle cx="30" cy="75" r="9" fill="#532AE5"/>
   <circle cx="70" cy="75" r="9" fill="#532AE5"/>
 
@@ -303,24 +303,24 @@ const featuresData: Feature[] = [
     icon: (
  <svg width="120" height="120" viewBox="0 0 130 130" fill="none" xmlns="http://www.w3.org/2000/svg">
  
-  <circle cx="65" cy="65" r="25" stroke="#532AE5" stroke-width="4"/>
+  <circle cx="65" cy="65" r="25" stroke="#532AE5" strokeWidth="4"/>
   
   
-  <circle cx="65" cy="65" r="40" stroke="#532AE5" stroke-width="3" stroke-dasharray="6 6">
+  <circle cx="65" cy="65" r="40" stroke="#532AE5" strokeWidth="3" stroke-dasharray="6 6">
     <animate attributeName="r" values="40;45;40" dur="3s" repeatCount="indefinite"/>
     <animate attributeName="opacity" values="1;0.5;1" dur="3s" repeatCount="indefinite"/>
   </circle>
-  <circle cx="65" cy="65" r="55" stroke="#532AE5" stroke-width="2" stroke-dasharray="6 6">
+  <circle cx="65" cy="65" r="55" stroke="#532AE5" strokeWidth="2" stroke-dasharray="6 6">
     <animate attributeName="r" values="55;60;55" dur="3s" repeatCount="indefinite"/>
     <animate attributeName="opacity" values="1;0.5;1" dur="3s" repeatCount="indefinite"/>
   </circle>
   
 
   <g transform="rotate(0 65 65)">
-    <path d="M65 5 L65 20 M65 5 L60 10 M65 5 L70 10" stroke="#532AE5" stroke-width="3" stroke-linecap="round"/>
-    <path d="M65 125 L65 110 M65 125 L60 120 M65 125 L70 120" stroke="#532AE5" stroke-width="3" stroke-linecap="round"/>
-    <path d="M5 65 L20 65 M5 65 L10 60 M5 65 L10 70" stroke="#532AE5" stroke-width="3" stroke-linecap="round"/>
-    <path d="M125 65 L110 65 M125 65 L120 60 M125 65 L120 70" stroke="#532AE5" stroke-width="3" stroke-linecap="round"/>
+    <path d="M65 5 L65 20 M65 5 L60 10 M65 5 L70 10" stroke="#532AE5" strokeWidth="3" stroke-linecap="round"/>
+    <path d="M65 125 L65 110 M65 125 L60 120 M65 125 L70 120" stroke="#532AE5" strokeWidth="3" stroke-linecap="round"/>
+    <path d="M5 65 L20 65 M5 65 L10 60 M5 65 L10 70" stroke="#532AE5" strokeWidth="3" strokeLinecap="round"/>
+    <path d="M125 65 L110 65 M125 65 L120 60 M125 65 L120 70" stroke="#532AE5" strokeWidth="3" strokeLinecap="round"/>
     <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 65 65" to="360 65 65" dur="20s" repeatCount="indefinite"/>
   </g>
 </svg>

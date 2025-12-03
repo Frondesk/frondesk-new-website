@@ -8,7 +8,6 @@ import NewsLatterBox from "@/components/Contact/NewsLatterBox";
 import { getStrapiMedia } from "../../../lib/api";
 
 // --------------------------------------------------
-// ⭐ RICH TEXT RENDERER FOR STRAPI (Bold, Bullets etc.)
 // --------------------------------------------------
 function renderStrapiRichText(blocks: any[]) {
   return blocks.map((block: any, i: number) => {
@@ -83,7 +82,10 @@ export default function BlogDetailSt() {
 
     async function fetchBlog() {
       const apiURL = `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/blogs?filters[slug][$eq]=${slug}&populate=*`;
-
+console.log({
+    strapiURL: process.env.NEXT_PUBLIC_STRAPI_URL,
+    envCheck: process.env
+  });
       try {
         const res = await fetch(apiURL);
         const text = await res.text();
@@ -184,6 +186,9 @@ export default function BlogDetailSt() {
               {Summary ||
                 "This blog post explores insights from the Frondesk Technologies platform."}
             </p>
+
+
+
 
             {/* ⭐ FIXED: FULL RICH TEXT RENDERING */}
             {Array.isArray(Description) && Description.length > 0 && (
