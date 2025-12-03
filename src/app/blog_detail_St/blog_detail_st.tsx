@@ -76,38 +76,60 @@ export default function BlogDetailSt() {
 
   const [blog, setBlog] = useState<any>(null);
   const [loading, setLoading] = useState(true);
+useEffect(() => {
+  if (!slug) return;
 
-  useEffect(() => {
-    if (!slug) return;
-
-    async function fetchBlog() {
-      const apiURL = `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/blogs?filters[slug][$eq]=${slug}&populate=*`;
-console.log({
+  async function fetchBlog() {
+    const apiURL = `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/blogs?filters[slug][$eq]=${slug}&populate=*`;
+ console.log({
     strapiURL: process.env.NEXT_PUBLIC_STRAPI_URL,
     envCheck: process.env
-  });
-      try {
-        const res = await fetch(apiURL);
-        const text = await res.text();
-
-        let json;
-        try {
-          json = JSON.parse(text);
-        } catch {
-          console.error(" Strapi returned HTML instead of JSON:", text);
-          return;
-        }
-
-        setBlog(json?.data?.[0]);
-      } catch (err) {
-        console.error("Fetch Error:", err);
-      } finally {
-        setLoading(false);
-      }
+   });
+    try {
+      const res = await fetch(apiURL);
+      const json = await res.json();
+      setBlog(json?.data?.[0]);
+    } catch (err) {
+      console.error("Fetch Error:", err);
+    } finally {
+      setLoading(false);
     }
+  }
 
-    fetchBlog();
-  }, [slug]);
+  fetchBlog();
+}, [slug]);
+
+//   useEffect(() => {
+//     if (!slug) return;
+
+//     async function fetchBlog() {
+//       const apiURL = `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/blogs?filters[slug][$eq]=${slug}&populate=*`;
+// console.log({
+//     strapiURL: process.env.NEXT_PUBLIC_STRAPI_URL,
+//     envCheck: process.env
+//   });
+//       try {
+//         const res = await fetch(apiURL);
+//         const text = await res.text();
+
+//         let json;
+//         try {
+//           json = JSON.parse(text);
+//         } catch {
+//           console.error(" Strapi returned HTML instead of JSON:", text);
+//           return;
+//         }
+
+//         setBlog(json?.data?.[0]);
+//       } catch (err) {
+//         console.error("Fetch Error:", err);
+//       } finally {
+//         setLoading(false);
+//       }
+//     }
+
+//     fetchBlog();
+//   }, [slug]);
 
   if (!slug) {
     return <p className="text-center text-red-600 py-20">No slug provided.</p>;
