@@ -29,7 +29,7 @@ export default async function BlogDetailPage(props: { searchParams: { slug?: str
     return <p className="text-center text-red-600 py-20">No slug provided.</p>;
   }
 
-  const res = await fetchAPI(`/blogs?filters[slug][$eq]=${slug}&populate=*`);
+  const res = await fetchAPI(`${process.env.NEXT_PUBLIC_STRAPI_URL}/blogs?filters[slug][$eq]=${slug}&populate=*`);
   const blog = res?.data?.[0];
 
   if (!blog) {
