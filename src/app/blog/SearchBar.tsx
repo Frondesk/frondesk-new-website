@@ -24,8 +24,13 @@ export default function SearchBar({ search = "", category = "All" }: SearchBarPr
     async function loadCategories() {
       try {
         const res = await fetch(
-          `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/categories?populate=*&sort=name:asc&pagination[limit]=100`
+          `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/categories?populate=*&sort=name:asc&pagination[limit]=4`
+          
         );
+          if (!res.ok) {
+      console.error('Strapi Categories 404 - check content type & permissions');
+      return [];
+    }
         const data = await res.json();
 
         if (data?.data) {

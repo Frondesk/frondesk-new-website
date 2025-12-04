@@ -12,8 +12,21 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
       - name: Install Dependencies
         run: npm install
+
+      # ⭐ ADD ENVIRONMENT VARIABLES HERE
+      - name: Create .env.production
+        run: |
+          echo "NEXT_PUBLIC_STRAPI_URL=${{ secrets.NEXT_PUBLIC_STRAPI_URL }}" >> .env.production
+          echo "NEXT_PUBLIC_API_KEY=${{ secrets.NEXT_PUBLIC_API_KEY }}" >> .env.production
+          echo "NEXT_PUBLIC_SOMETHING_ELSE=${{ secrets.NEXT_PUBLIC_SOMETHING_ELSE }}" >> .env.production
+        shell: bash
 
       - name: Build Next.js
         run: npm run build
@@ -27,3 +40,35 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
           publish_dir: out
+
+
+
+# name: Deploy Next.js to GitHub Pages
+
+# on:
+#   push:
+#     branches: [ "main" ]
+
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
+
+#     steps:
+#       - name: Checkout
+#         uses: actions/checkout@v3
+
+#       - name: Install Dependencies
+#         run: npm install
+
+#       - name: Build Next.js
+#         run: npm run build
+
+#       - name: Export static site
+#         run: npm run export
+
+#       - name: Deploy to GH Pages
+#         uses: peaceiris/actions-gh-pages@v3
+#         with:
+#           github_token: ${{ secrets.GITHUB_TOKEN }}
+#           publish_branch: gh-pages
+#           publish_dir: out
