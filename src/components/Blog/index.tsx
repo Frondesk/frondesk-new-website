@@ -28,15 +28,9 @@ export default async function BlogDetailPage(props: { searchParams: { slug?: str
   if (!slug) {
     return <p className="text-center text-red-600 py-20">No slug provided.</p>;
   }
-const res = await fetch(
-  `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/blogs?filters[slug][$eq]=${slug}&populate=*`,
-  { cache: "no-store" }
-);
 
-const data = await res.json();
-const blog = data?.data?.[0];
-  // const res = await fetchAPI(`${process.env.NEXT_PUBLIC_STRAPI_URL}/blogs?filters[slug][$eq]=${slug}&populate=*`);
-  // const blog = res?.data?.[0];
+  const res = await fetchAPI(`${process.env.NEXT_PUBLIC_STRAPI_URL}/blogs?filters[slug][$eq]=${slug}&populate=*`);
+  const blog = res?.data?.[0];
 
   if (!blog) {
     return <p className="text-center text-red-600 py-20">Blog not found.</p>;

@@ -1,13 +1,12 @@
-
-export const revalidate = 60; // Revalidate every 60 seconds
+export const revalidate = 60;
 import { Suspense } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Breadcrumb from "@/components/Common/Breadcrumb";
 import SearchBar from "./SearchBar";
+
 function shortTextWithReadMore(text: string, slug: string, wordLimit = 30) {
   if (!text) return "";
-
   const words = text.split(" ");
   if (words.length > wordLimit) {
     const truncated = words.slice(0, wordLimit).join(" ") + " ";
@@ -20,7 +19,6 @@ function shortTextWithReadMore(text: string, slug: string, wordLimit = 30) {
       </>
     );
   }
-
   return text;
 }
 
@@ -47,22 +45,39 @@ function resolveImageUrl(featureImage: any) {
     : `${process.env.NEXT_PUBLIC_STRAPI_URL}${url}`;
 }
 
-export default async function Blog() {
-  // Static defaults at build time
-  const search = "";
-  const page = 1;
+// -------------------------------
+// ✅ FIXED — Read URL search params
+// -------------------------------
+export default async function Blog({ searchParams }) {
+  const search = searchParams.search || "";
+  const category = searchParams.category || "";
+  const page = Number(searchParams.page) || 1;
   const pageSize = 6;
 
-const apiUrl = `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/blogs?populate=*&sort=publishedAt:desc&pagination[limit]=${pageSize}&pagination[start]=${(page - 1) * pageSize}`;
+  // -------------------------------
+  // ✅ FIXED — Build dynamic Strapi query
+  // -------------------------------
+  const query = new URLSearchParams();
+  query.append("populate", "*");
+  query.append("sort", "publishedAt:desc");
+  query.append("pagination[limit]", pageSize.toString());
+  query.append("pagination[start]", ((page - 1) * pageSize).toString());
+
+  if (search) {
+    query.append("filters[Title][$containsi]", search);
+  }
+
+  if (category && category !== "All") {
+    query.append("filters[categories][name][$eq]", category);
+  }
+
+  const apiUrl = `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/blogs?${query.toString()}`;
 
   const res = await fetch(apiUrl, {
-    // Use ISR friendly revalidate
-    //next: { revalidate: 60 }, // Regenerate page every 60 seconds
+    cache: "no-store",
   });
 
-  if (!res.ok) {
-    throw new Error("Failed to fetch blogs from Strapi");
-  }
+  if (!res.ok) throw new Error("Failed to fetch blogs from Strapi");
 
   const data = await res.json();
   const blogs = data?.data || [];
@@ -76,13 +91,15 @@ const apiUrl = `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/blogs?populate=*&sort=
       />
 
       <section className="pt-[120px] pb-[120px]">
-        <SearchBar search={search} />
+
+        {/* 🔥 Pass current search & category to SearchBar */}
+        <SearchBar search={search} category={category} />
 
         <div className="container">
           <div className="-mx-4 flex flex-wrap justify-center">
             {blogs.length === 0 && (
               <p className="text-center w-full text-xl text-red-500 py-20">
-                No blogsffffff found for “{search}”
+                No blogs found for “{search}”
               </p>
             )}
 
@@ -105,11 +122,11 @@ const apiUrl = `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/blogs?populate=*&sort=
                   key={slug}
                   className="w-full px-4 md:w-2/3 lg:w-1/2 xl:w-1/3"
                 >
-                 <div className="group shadow-one hover:shadow-two dark:bg-dark relative overflow-hidden rounded-xs bg-white duration-300">
+                  <div className="group shadow-one hover:shadow-two dark:bg-dark relative overflow-hidden rounded-xs bg-white duration-300">
 
                     <Link
                       href={`/blog_detail_St?slug=${slug}`}
-                      className="relative block aspect-[20/14] "
+                      className="relative block aspect-[20/14]"
                     >
                       <Image
                         src={coverUrl}
@@ -129,14 +146,9 @@ const apiUrl = `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/blogs?populate=*&sort=
                         </Link>
                       </h3>
 
-                      {/* <p className="text-body-color mb-6 text-base font-medium">
-                        {summary}
-                      </p> */}
-
                       <p className="text-body-color mb-6 text-base font-medium">
-  {shortTextWithReadMore(summary, slug)}
-</p>
-
+                        {shortTextWithReadMore(summary, slug)}
+                      </p>
 
                       <div className="flex items-center justify-between">
                         <h4 className="text-sm font-medium text-dark">
@@ -150,21 +162,24 @@ const apiUrl = `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/blogs?populate=*&sort=
                         </p>
                       </div>
                     </div>
+
                   </div>
                 </div>
               );
             })}
           </div>
 
+          {/* 🔥 FIXED Pagination – keeps search & category */}
           {meta.pageCount > 1 && (
             <div className="-mx-4 flex flex-wrap">
               <div className="w-full px-4">
                 <ul className="flex items-center justify-center pt-8">
                   <li className="mx-1">
                     <Link
-                      href={`/blog?search=${encodeURIComponent(
-                        search
-                      )}&page=${Math.max(page - 1, 1)}`}
+                      href={`/blog?search=${search}&category=${category}&page=${Math.max(
+                        page - 1,
+                        1
+                      )}`}
                       className="bg-body-color/15 text-body-color hover:bg-primary flex h-9 min-w-[36px] items-center justify-center rounded-md px-4 text-sm transition hover:text-white"
                     >
                       Prev
@@ -174,9 +189,9 @@ const apiUrl = `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/blogs?populate=*&sort=
                   {Array.from({ length: meta.pageCount }, (_, i) => (
                     <li key={i} className="mx-1">
                       <Link
-                        href={`/blog?search=${encodeURIComponent(
-                          search
-                        )}&page=${i + 1}`}
+                        href={`/blog?search=${search}&category=${category}&page=${
+                          i + 1
+                        }`}
                         className={`flex h-9 min-w-[36px] items-center justify-center rounded-md px-4 text-sm transition ${
                           page === i + 1
                             ? "bg-primary text-white"
@@ -186,13 +201,14 @@ const apiUrl = `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/blogs?populate=*&sort=
                         {i + 1}
                       </Link>
                     </li>
-                  ))} 
+                  ))}
 
                   <li className="mx-1">
                     <Link
-                      href={`/blog?search=${encodeURIComponent(
-                        search
-                      )}&page=${Math.min(page + 1, meta.pageCount)}`}
+                      href={`/blog?search=${search}&category=${category}&page=${Math.min(
+                        page + 1,
+                        meta.pageCount
+                      )}`}
                       className="bg-body-color/15 text-body-color hover:bg-primary flex h-9 min-w-[36px] items-center justify-center rounded-md px-4 text-sm transition hover:text-white"
                     >
                       Next
@@ -201,12 +217,223 @@ const apiUrl = `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/blogs?populate=*&sort=
                 </ul>
               </div>
             </div>
-          )} 
+          )}
+
         </div>
       </section>
     </Suspense>
   );
 }
+
+
+// export const revalidate = 60; // Revalidate every 60 seconds
+// import { Suspense } from "react";
+// import Image from "next/image";
+// import Link from "next/link";
+// import Breadcrumb from "@/components/Common/Breadcrumb";
+// import SearchBar from "./SearchBar";
+// function shortTextWithReadMore(text: string, slug: string, wordLimit = 30) {
+//   if (!text) return "";
+
+//   const words = text.split(" ");
+//   if (words.length > wordLimit) {
+//     const truncated = words.slice(0, wordLimit).join(" ") + " ";
+//     return (
+//       <>
+//         {truncated}
+//         <Link href={`/blog_detail_St?slug=${slug}`} className="text-primary ml-1">
+//           Read More
+//         </Link>
+//       </>
+//     );
+//   }
+
+//   return text;
+// }
+
+// export const metadata = {
+//   title:
+//     "Frondesk Blog | Stories that Shape the Future of Car Dealerships | Frondesk Perspectives",
+//   description:
+//     "Explore the Frondesk Blog — your source for AI dealership insights, automotive management guides, sales growth strategies.",
+// };
+
+// function resolveImageUrl(featureImage: any) {
+//   if (!featureImage) return "/images/blog/default.png";
+
+//   const url =
+//     featureImage?.[0]?.url ||
+//     featureImage?.url ||
+//     featureImage?.data?.attributes?.url ||
+//     featureImage?.attributes?.url;
+
+//   if (!url) return "/images/blog/default.png";
+
+//   return url.startsWith("http")
+//     ? url
+//     : `${process.env.NEXT_PUBLIC_STRAPI_URL}${url}`;
+// }
+
+// export default async function Blog() {
+//   // Static defaults at build time
+//   const search = "";
+//   const page = 1;
+//   const pageSize = 6;
+
+// const apiUrl = `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/blogs?populate=*&sort=publishedAt:desc&pagination[limit]=${pageSize}&pagination[start]=${(page - 1) * pageSize}`;
+
+//   const res = await fetch(apiUrl, {
+//     // Use ISR friendly revalidate
+//     //next: { revalidate: 60 }, // Regenerate page every 60 seconds
+//   });
+
+//   if (!res.ok) {
+//     throw new Error("Failed to fetch blogs from Strapi");
+//   }
+
+//   const data = await res.json();
+//   const blogs = data?.data || [];
+//   const meta = data?.meta?.pagination || { pageCount: 1 };
+
+//   return (
+//     <Suspense fallback={<div>Loading...</div>}>
+//       <Breadcrumb
+//         pageName="Blog Grid"
+//         description="Explore the Frondesk Blog — your source for AI dealership insights."
+//       />
+
+//       <section className="pt-[120px] pb-[120px]">
+//         <SearchBar search={search} />
+
+//         <div className="container">
+//           <div className="-mx-4 flex flex-wrap justify-center">
+//             {blogs.length === 0 && (
+//               <p className="text-center w-full text-xl text-red-500 py-20">
+//                 No blogsffffff found for “{search}”
+//               </p>
+//             )}
+
+//             {blogs.map((blog: any) => {
+//               const raw = blog?.attributes ?? blog;
+//               const title = raw?.Title || "Untitled Blog";
+//               const summary =
+//                 raw?.Summary ||
+//                 raw?.Description?.[0]?.children?.[0]?.text ||
+//                 "No summary available.";
+//               const slug = raw?.slug || blog?.id;
+//               const publishedAt = raw.publishedAt;
+
+//               const coverUrl = resolveImageUrl(
+//                 raw?.FeatureImage ?? raw?.featureImage
+//               );
+
+//               return (
+//                 <div
+//                   key={slug}
+//                   className="w-full px-4 md:w-2/3 lg:w-1/2 xl:w-1/3"
+//                 >
+//                  <div className="group shadow-one hover:shadow-two dark:bg-dark relative overflow-hidden rounded-xs bg-white duration-300">
+
+//                     <Link
+//                       href={`/blog_detail_St?slug=${slug}`}
+//                       className="relative block aspect-[20/14] "
+//                     >
+//                       <Image
+//                         src={coverUrl}
+//                         alt={title}
+//                         fill
+//                         className="object-cover"
+//                       />
+//                     </Link>
+
+//                     <div className="p-6 sm:p-8">
+//                       <h3>
+//                         <Link
+//                           href={`/blog_detail_St?slug=${slug}`}
+//                           className="hover:text-primary mb-4 block text-xl font-bold text-blue sm:text-2xl"
+//                         >
+//                           {title}
+//                         </Link>
+//                       </h3>
+
+//                       {/* <p className="text-body-color mb-6 text-base font-medium">
+//                         {summary}
+//                       </p> */}
+
+//                       <p className="text-body-color mb-6 text-base font-medium">
+//   {shortTextWithReadMore(summary, slug)}
+// </p>
+
+
+//                       <div className="flex items-center justify-between">
+//                         <h4 className="text-sm font-medium text-dark">
+//                           By {raw?.author || "Unknown"}
+//                         </h4>
+
+//                         <p className="text-xs text-body-color">
+//                           {publishedAt
+//                             ? new Date(publishedAt).toLocaleDateString()
+//                             : "N/A"}
+//                         </p>
+//                       </div>
+//                     </div>
+//                   </div>
+//                 </div>
+//               );
+//             })}
+//           </div>
+
+//           {meta.pageCount > 1 && (
+//             <div className="-mx-4 flex flex-wrap">
+//               <div className="w-full px-4">
+//                 <ul className="flex items-center justify-center pt-8">
+//                   <li className="mx-1">
+//                     <Link
+//                       href={`/blog?search=${encodeURIComponent(
+//                         search
+//                       )}&page=${Math.max(page - 1, 1)}`}
+//                       className="bg-body-color/15 text-body-color hover:bg-primary flex h-9 min-w-[36px] items-center justify-center rounded-md px-4 text-sm transition hover:text-white"
+//                     >
+//                       Prev
+//                     </Link>
+//                   </li>
+
+//                   {Array.from({ length: meta.pageCount }, (_, i) => (
+//                     <li key={i} className="mx-1">
+//                       <Link
+//                         href={`/blog?search=${encodeURIComponent(
+//                           search
+//                         )}&page=${i + 1}`}
+//                         className={`flex h-9 min-w-[36px] items-center justify-center rounded-md px-4 text-sm transition ${
+//                           page === i + 1
+//                             ? "bg-primary text-white"
+//                             : "bg-body-color/15 text-body-color hover:bg-primary hover:text-white"
+//                         }`}
+//                       >
+//                         {i + 1}
+//                       </Link>
+//                     </li>
+//                   ))} 
+
+//                   <li className="mx-1">
+//                     <Link
+//                       href={`/blog?search=${encodeURIComponent(
+//                         search
+//                       )}&page=${Math.min(page + 1, meta.pageCount)}`}
+//                       className="bg-body-color/15 text-body-color hover:bg-primary flex h-9 min-w-[36px] items-center justify-center rounded-md px-4 text-sm transition hover:text-white"
+//                     >
+//                       Next
+//                     </Link>
+//                   </li>
+//                 </ul>
+//               </div>
+//             </div>
+//           )} 
+//         </div>
+//       </section>
+//     </Suspense>
+//   );
+// }
 
 
 
